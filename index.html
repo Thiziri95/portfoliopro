@@ -1,1 +1,588 @@
+<!doctype html>
+<html lang="fr" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio — Thiziri Hamlaoui</title>
+  <meta name="description" content="Portfolio Data & IA — Thiziri Hamlaoui (BUT Science des Données)" />
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- Top progress bar -->
+  <div class="progress" aria-hidden="true">
+    <div class="progress__bar" id="progressBar"></div>
+  </div>
+
+  <!-- Ambient background -->
+  <div class="ambient" aria-hidden="true">
+    <div class="ambient__glow g1"></div>
+    <div class="ambient__glow g2"></div>
+    <div class="ambient__glow g3"></div>
+    <canvas id="particles"></canvas>
+  </div>
+
+  <!-- Header -->
+  <header class="topbar" id="topbar">
+    <div class="container topbar__inner">
+      <a class="brand" href="#home" aria-label="Aller au début">
+        <span class="brand__mark" aria-hidden="true"></span>
+        <span class="brand__text">Thiziri Hamlaoui</span>
+      </a>
+
+      <nav class="nav" id="nav">
+        <a class="nav__link" href="#presentation">Présentation</a>
+        <a class="nav__link" href="#why">Pourquoi la data</a>
+        <a class="nav__link" href="#skills">Compétences</a>
+        <a class="nav__link" href="#projects">Projets / SAÉ</a>
+        <a class="nav__link" href="#sae">Bilan SAÉ</a>
+        <a class="nav__link" href="#objectifs">Objectifs</a>
+        <a class="nav__link" href="#contact">Contact</a>
+      </nav>
+
+      <div class="topbar__actions">
+        <button class="iconbtn" id="themeBtn" type="button" aria-label="Changer le thème">
+          <span class="icon" id="themeIcon" aria-hidden="true">🌙</span>
+        </button>
+
+        <button class="burger" id="burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="drawer">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile drawer -->
+  <aside class="drawer" id="drawer" aria-hidden="true">
+    <div class="drawer__panel">
+      <div class="drawer__head">
+        <div class="drawer__title">Menu</div>
+        <button class="iconbtn" id="closeDrawer" type="button" aria-label="Fermer le menu">
+          ✕
+        </button>
+      </div>
+
+      <div class="drawer__links">
+        <a href="#presentation">Présentation</a>
+        <a href="#why">Pourquoi la data</a>
+        <a href="#skills">Compétences</a>
+        <a href="#projects">Projets / SAÉ</a>
+        <a href="#sae">Bilan SAÉ</a>
+        <a href="#objectifs">Objectifs</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <div class="drawer__footer">
+        <p class="muted small">Portfolio — Data & IA</p>
+      </div>
+    </div>
+  </aside>
+
+  <!-- HERO -->
+  <main id="home" class="hero">
+    <div class="container hero__grid">
+      <div class="reveal">
+        <p class="kicker">BUT 2 — Science des Données • IUT de Villetaneuse</p>
+
+        <h1 class="hero__title">
+          Portfolio <span class="grad">Data & IA</span>
+        </h1>
+
+        <p class="hero__lead">
+          Étudiante en BUT Science des Données, passionnée par l’intelligence artificielle.
+          Mon objectif : évoluer vers le métier de <strong>NLP Engineer</strong>.
+        </p>
+
+        <div class="hero__badges">
+          <span class="badge">Python</span>
+          <span class="badge">SQL</span>
+          <span class="badge">R</span>
+          <span class="badge">Excel</span>
+          <span class="badge">Metabase</span>
+          <span class="badge">Dataviz</span>
+        </div>
+
+        <div class="hero__cta">
+          <a class="btn" href="#presentation">Découvrir</a>
+          <a class="btn btn--ghost" href="#projects">Voir mes projets</a>
+          <a class="btn btn--soft" href="#contact">Contact</a>
+        </div>
+
+        <div class="miniGrid">
+          <div class="mini">
+            <div class="mini__k">Objectif stage</div>
+            <div class="mini__v">Avril – Juin 2026</div>
+          </div>
+          <div class="mini">
+            <div class="mini__k">Localisation</div>
+            <div class="mini__v">Domont (95) • Île-de-France</div>
+          </div>
+          <div class="mini">
+            <div class="mini__k">Focus</div>
+            <div class="mini__v">Data → IA → NLP</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal" style="transition-delay:120ms">
+        <div class="glassCard">
+          <div class="glassCard__top">
+            <h3>En résumé</h3>
+            <p class="muted">Ce que je sais faire aujourd’hui</p>
+          </div>
+
+          <ul class="checklist">
+            <li>Traiter & structurer des données (CSV, SQL)</li>
+            <li>Analyser statistiquement (R, Python)</li>
+            <li>Valoriser (dashboards, rapports)</li>
+            <li>Première modélisation (régression logistique)</li>
+          </ul>
+
+          <div class="glassCard__bottom">
+            <div class="pill">Curieuse</div>
+            <div class="pill">Disciplinée</div>
+            <div class="pill">Rigoureuse</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scrollHint" aria-hidden="true">
+      <div class="scrollHint__dot"></div>
+      <div class="scrollHint__line"></div>
+    </div>
+  </main>
+
+  <!-- SECTION: Présentation -->
+  <section id="presentation" class="section">
+    <div class="container">
+      <div class="section__head reveal">
+        <h2>1) Présentation personnelle</h2>
+        <p class="muted">Qui je suis, ce que j’aime, et mon projet professionnel.</p>
+      </div>
+
+      <div class="grid2">
+        <article class="card reveal">
+          <h3>Qui je suis</h3>
+          <p>
+            Au lycée, je n’avais pas vraiment d’objectif précis. J’aimais beaucoup les jeux vidéo et je pensais que je voulais en créer plus tard.
+            C’est pour ça que j’ai choisi la spécialité NSI. Je pensais que l’informatique serait ma voie.
+          </p>
+          <p>
+            En pratiquant le code, j’ai compris que rester toute la journée à programmer ne me correspondait pas totalement.
+            J’aimais comprendre, mais pas seulement écrire du code sans réflexion autour. À cette période, je manquais aussi d’organisation et de discipline.
+          </p>
+          <p>
+            Aujourd’hui, je suis en BUT 2 Science des Données à l’IUT de Villetaneuse. J’ai hésité avec une licence informatique,
+            mais j’ai choisi le BUT parce qu’il est plus varié : programmation, statistiques, probabilités, datavisualisation et intelligence artificielle.
+            Cette diversité me correspond mieux.
+          </p>
+        </article>
+
+        <aside class="card reveal" style="transition-delay:90ms">
+          <h3>Ce que j’aime & mon objectif</h3>
+          <p>
+            Ce que j’aime dans la data, ce n’est pas juste coder. C’est comprendre un problème, analyser des données et arriver à une réponse claire.
+            J’aime quand quelque chose de flou devient structuré et logique.
+          </p>
+          <p>
+            Parmi tout ce qu’on apprend, l’intelligence artificielle est ce qui m’intéresse le plus.
+            Je trouve ça impressionnant de voir comment des systèmes peuvent apprendre et comprendre des choses par eux-mêmes.
+          </p>
+
+          <div class="callout">
+            <div class="callout__k">Projet professionnel</div>
+            <div class="callout__v">
+              Plus tard, j’aimerais devenir <strong>NLP Engineer</strong> et travailler sur des systèmes capables de comprendre et générer du texte,
+              comme des assistants intelligents.
+            </div>
+          </div>
+
+          <p class="muted small">
+            Pour y arriver, je travaille d’abord mes bases en Python, SQL et statistiques. Je préfère avancer étape par étape et construire des bases solides.
+          </p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: Why -->
+  <section id="why" class="section section--alt">
+    <div class="container">
+      <div class="section__head reveal">
+        <h2>2) Pourquoi la science des données ?</h2>
+        <p class="muted">Raisons personnelles + réalités du domaine.</p>
+      </div>
+
+      <div class="card reveal">
+        <p>
+          Au départ, je pensais vouloir faire de l’informatique pure. Mais en pratiquant, j’ai compris que ce qui m’intéressait le plus,
+          ce n’était pas seulement coder, mais comprendre et analyser.
+        </p>
+        <p>
+          La science des données m’a attirée parce qu’elle combine programmation, statistiques, réflexion logique et interprétation de résultats.
+          Ce n’est pas juste écrire du code : c’est donner du sens à des données et prendre des décisions à partir d’elles.
+        </p>
+        <p>
+          Ce que j’apprécie, c’est le processus : partir d’un problème flou, structurer les données, tester des hypothèses, puis arriver à une conclusion claire
+          et argumentée. La dimension technique + analytique me correspond davantage que le développement classique.
+        </p>
+        <p>
+          La data me rapproche aussi de l’intelligence artificielle, notamment du traitement du langage naturel. Le NLP relie mathématiques, programmation
+          et compréhension du langage humain, et c’est ce qui me motive énormément.
+        </p>
+        <p>
+          Enfin, j’aime le fait que la data soit utile : santé, économie, technologie, environnement… C’est un domaine qui peut vraiment améliorer des systèmes
+          et aider à la prise de décision.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: Skills -->
+  <section id="skills" class="section">
+    <div class="container">
+      <div class="section__head reveal">
+        <h2>3) Compétences & qualités</h2>
+        <p class="muted">Une vue claire, lisible, et “recruteur-friendly”.</p>
+      </div>
+
+      <div class="grid3">
+        <article class="card reveal">
+          <h3>Tech</h3>
+          <div class="skill">
+            <div class="skill__top"><span>Python</span><span class="muted small">intermédiaire</span></div>
+            <div class="bar"><div class="bar__fill" style="--v:72%"></div></div>
+            <p class="muted small">Analyse, nettoyage CSV, bases de classification (régression logistique).</p>
+          </div>
+          <div class="skill">
+            <div class="skill__top"><span>SQL</span><span class="muted small">intermédiaire</span></div>
+            <div class="bar"><div class="bar__fill" style="--v:70%"></div></div>
+            <p class="muted small">Jointures, agrégations, filtres, logique base relationnelle.</p>
+          </div>
+          <div class="skill">
+            <div class="skill__top"><span>R</span><span class="muted small">intermédiaire</span></div>
+            <div class="bar"><div class="bar__fill" style="--v:62%"></div></div>
+            <p class="muted small">Statistiques descriptives, simulations, intervalles de confiance.</p>
+          </div>
+          <div class="skill">
+            <div class="skill__top"><span>HTML / CSS</span><span class="muted small">bases</span></div>
+            <div class="bar"><div class="bar__fill" style="--v:45%"></div></div>
+            <p class="muted small">Structuration d’un site web (ce portfolio).</p>
+          </div>
+        </article>
+
+        <article class="card reveal" style="transition-delay:90ms">
+          <h3>Data & analyse</h3>
+          <ul class="bullets">
+            <li>Nettoyage de données (valeurs manquantes, cohérence)</li>
+            <li>Statistiques : moyenne, dispersion, corrélation</li>
+            <li>Interprétation de résultats + esprit critique</li>
+            <li>Estimation par sondage + comparaison de précision</li>
+          </ul>
+          <div class="note">
+            <div class="note__k">Exemple</div>
+            <div class="note__v">Analyse d’un dataset médical pour identifier les variables discriminantes dans la classification de tumeurs.</div>
+          </div>
+        </article>
+
+        <article class="card reveal" style="transition-delay:180ms">
+          <h3>Outils & valorisation</h3>
+          <ul class="bullets">
+            <li><strong>Excel</strong> : dashboards, TCD, graphiques dynamiques</li>
+            <li><strong>Metabase</strong> : dataviz à partir de requêtes SQL</li>
+            <li><strong>Tableau / Power BI</strong> : en apprentissage</li>
+            <li>Rapports structurés + recommandations</li>
+          </ul>
+          <div class="note">
+            <div class="note__k">Exemple</div>
+            <div class="note__v">Dashboard Excel interactif pour rendre des résultats lisibles et utiles à la décision.</div>
+          </div>
+        </article>
+      </div>
+
+      <div class="grid2 mt reveal">
+        <article class="card">
+          <h3>Compétences transversales</h3>
+          <ul class="bullets">
+            <li>Organisation de projet (cadre d’étude, gestion des tâches)</li>
+            <li>Conception et analyse de questionnaires</li>
+            <li>Vulgarisation de résultats techniques (public non spécialiste)</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Mes qualités</h3>
+          <div class="qualities">
+            <div class="q">
+              <div class="q__t">Organisation</div>
+              <div class="q__d">Je planifie mes journées et je découpe les grosses tâches en étapes. Ça m’aide quand plusieurs rendus se chevauchent.</div>
+            </div>
+            <div class="q">
+              <div class="q__t">Détermination</div>
+              <div class="q__d">Quand je bloque, je continue. Le sport m’a appris la régularité et la discipline, et je l’applique dans mes études.</div>
+            </div>
+            <div class="q">
+              <div class="q__t">Travail d’équipe</div>
+              <div class="q__d">Je m’implique vraiment : répartition, écoute, communication. J’ai compris que la réussite dépend aussi de la collaboration.</div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: Projects / SAE cards + modal -->
+  <section id="projects" class="section section--alt">
+    <div class="container">
+      <div class="section__head reveal">
+        <h2>4) Projets / SAÉ</h2>
+        <p class="muted">Une sélection de projets représentatifs (clic → détails).</p>
+      </div>
+
+      <div class="projectsGrid reveal">
+        <button class="pCard" type="button" data-modal="tumeurs">
+          <div class="pCard__top">
+            <div class="pIcon">🧬</div>
+            <div>
+              <div class="pTitle">Classification de tumeurs</div>
+              <div class="pMeta">Python • Régression logistique • Dataset médical</div>
+            </div>
+          </div>
+          <p class="muted">Préparation des données, sélection de variables, apprentissage et interprétation.</p>
+          <div class="pTags">
+            <span>Modéliser</span><span>Analyser</span>
+          </div>
+        </button>
+
+        <button class="pCard" type="button" data-modal="sondage">
+          <div class="pCard__top">
+            <div class="pIcon">📊</div>
+            <div>
+              <div class="pTitle">Estimation par sondage</div>
+              <div class="pMeta">R • Simulation • IC • Comparaison de précision</div>
+            </div>
+          </div>
+          <p class="muted">Création de fonctions R pour tirer des échantillons et analyser la fiabilité.</p>
+          <div class="pTags">
+            <span>Analyser</span><span>Traiter</span>
+          </div>
+        </button>
+
+        <button class="pCard" type="button" data-modal="sql">
+          <div class="pCard__top">
+            <div class="pIcon">🗄️</div>
+            <div>
+              <div class="pTitle">Projet base de données</div>
+              <div class="pMeta">SQL • PostgreSQL • Metabase</div>
+            </div>
+          </div>
+          <p class="muted">Schéma relationnel, requêtes, extraction et visualisation orientée décision.</p>
+          <div class="pTags">
+            <span>Traiter</span><span>Valoriser</span>
+          </div>
+        </button>
+
+        <button class="pCard" type="button" data-modal="excel">
+          <div class="pCard__top">
+            <div class="pIcon">📈</div>
+            <div>
+              <div class="pTitle">Dashboard Excel</div>
+              <div class="pMeta">TCD • Graphiques dynamiques • KPI</div>
+            </div>
+          </div>
+          <p class="muted">Construire une visualisation utile : claire, lisible, exploitable.</p>
+          <div class="pTags">
+            <span>Valoriser</span>
+          </div>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: SAE summary (C1..C4) -->
+  <section id="sae" class="section">
+    <div class="container">
+      <div class="section__head reveal">
+        <h2>5) Bilan des compétences à partir des SAÉ</h2>
+        <p class="muted">Aligné avec les 4 compétences BUT SD : Traiter, Analyser, Valoriser, Modéliser.</p>
+      </div>
+
+      <div class="grid2">
+        <article class="card reveal">
+          <h3>C1 — Traiter des données à des fins décisionnelles</h3>
+          <p class="muted small">Avant : données simples, sans toujours vérifier la fiabilité.</p>
+          <p>
+            Aujourd’hui, je sais nettoyer (valeurs manquantes, doublons, incohérences), structurer des données réutilisables,
+            et préparer un dataset pour répondre à une question.
+          </p>
+          <div class="chipsRow">
+            <span class="chip2">Nettoyage</span><span class="chip2">Structuration</span><span class="chip2">Qualité</span>
+          </div>
+          <p class="muted small">Progrès à faire : automatiser davantage (pipeline) et gagner en rapidité de contrôle qualité.</p>
+        </article>
+
+        <article class="card reveal" style="transition-delay:90ms">
+          <h3>C2 — Analyser statistiquement les données</h3>
+          <p class="muted small">Avant : calculer oui, interpréter/justifier moins.</p>
+          <p>
+            Je fais des analyses descriptives, j’évalue la fiabilité d’un résultat, et je sais expliquer ce que “dit” la donnée,
+            pas seulement donner un chiffre.
+          </p>
+          <div class="chipsRow">
+            <span class="chip2">Stats</span><span class="chip2">Lecture critique</span><span class="chip2">Justification</span>
+          </div>
+          <p class="muted small">Progrès à faire : plus de fluidité sur R et certains raisonnements statistiques.</p>
+        </article>
+
+        <article class="card reveal">
+          <h3>C3 — Valoriser une production dans un contexte professionnel</h3>
+          <p class="muted small">Avant : rendus corrects, mais parfois trop longs ou pas assez lisibles.</p>
+          <p>
+            Je sais produire des graphiques cohérents, structurer une restitution (contexte → méthode → résultat → conclusion),
+            et rédiger un rapport clair avec des idées utiles.
+          </p>
+          <div class="chipsRow">
+            <span class="chip2">Dataviz</span><span class="chip2">Synthèse</span><span class="chip2">Reporting</span>
+          </div>
+          <p class="muted small">Progrès à faire : recommandations plus “décision” + mieux résumer.</p>
+        </article>
+
+        <article class="card reveal" style="transition-delay:90ms">
+          <h3>C4 — Modéliser les données dans un cadre statistique</h3>
+          <p class="muted small">Avant : je voyais la modélisation comme “des formules”.</p>
+          <p>
+            J’ai appris à choisir une méthode simple adaptée, repérer les variables importantes, et comprendre le modèle (pas juste l’utiliser).
+          </p>
+          <div class="chipsRow">
+            <span class="chip2">Modélisation</span><span class="chip2">Variables</span><span class="chip2">Limites</span>
+          </div>
+          <p class="muted small">Progrès à faire : explorer d’autres modèles, validation, surapprentissage.</p>
+        </article>
+      </div>
+
+      <div class="card mt reveal">
+        <h3>Conclusion</h3>
+        <p>
+          Ces SAÉ m’ont fait progresser sur les 4 axes : traiter proprement, analyser sérieusement, valoriser clairement,
+          et commencer à modéliser. Je vois mieux mes points forts (structuration, analyse, restitution) et ce que je dois renforcer
+          (modélisation plus avancée, fluidité sur R, automatisation). C’est exactement ce que je cherche pour un stage :
+          appliquer mes bases solides et continuer à monter en niveau.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: Objectifs -->
+  <section id="objectifs" class="section section--alt">
+    <div class="container">
+      <div class="section__head reveal">
+        <h2>6) Objectifs</h2>
+        <p class="muted">Court / Moyen / Long terme (et comment je m’y prends).</p>
+      </div>
+
+      <div class="grid3">
+        <article class="card reveal">
+          <h3>Court terme</h3>
+          <p>Consolider mes bases en Python, SQL et statistiques, valider BUT 2 et BUT 3, et obtenir une alternance/stage en data (Data Analyst ou similaire).</p>
+          <p class="muted small">Actions : projets sérieux, anglais, progression continue en IA vue en cours.</p>
+        </article>
+
+        <article class="card reveal" style="transition-delay:90ms">
+          <h3>Moyen terme</h3>
+          <p>Après le BUT, poursuivre un Master IA, idéalement en alternance, pour être sur des projets réels et aller progressivement vers le NLP.</p>
+          <p class="muted small">Actions : veille + formations perso pour rester à jour.</p>
+        </article>
+
+        <article class="card reveal" style="transition-delay:180ms">
+          <h3>Long terme</h3>
+          <p>Devenir NLP Engineer et contribuer à des systèmes utiles, accessibles et responsables, capables de comprendre/générer du langage.</p>
+          <p class="muted small">Objectif : continuer à apprendre dans un domaine qui évolue vite.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: Contact -->
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="section__head reveal">
+        <h2>Me contacter</h2>
+        <p class="muted">Simple, pro, rapide.</p>
+      </div>
+
+      <div class="grid2">
+        <div class="card reveal">
+          <h3>Coordonnées</h3>
+          <div class="contactList">
+            <div class="cItem">
+              <div class="cKey">Email</div>
+              <div class="cVal">
+                <a class="link" href="mailto:thizirihamlaoui@gmail.com">thizirihamlaoui@gmail.com</a>
+                <button class="miniBtn" id="copyEmail" type="button">Copier</button>
+              </div>
+            </div>
+
+            <div class="cItem">
+              <div class="cKey">GitHub</div>
+              <div class="cVal">
+                <a class="link" href="https://github.com/Thiziri95" target="_blank" rel="noreferrer">github.com/Thiziri95</a>
+              </div>
+            </div>
+
+            <div class="cItem">
+              <div class="cKey">LinkedIn</div>
+              <div class="cVal">
+                <a class="link" href="https://www.linkedin.com/in/thiziri-hamlaoui" target="_blank" rel="noreferrer">linkedin.com/in/thiziri-hamlaoui</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="toast" id="toast" role="status" aria-live="polite">Copié ✅</div>
+        </div>
+
+        <div class="card reveal" style="transition-delay:120ms">
+          <h3>Merci</h3>
+          <p>
+            Merci d’avoir pris le temps de visiter mon portfolio. Je suis motivée pour apprendre sur le terrain, appliquer mes bases solides,
+            et progresser sur des projets concrets en data et IA.
+          </p>
+          <div class="divider"></div>
+          <p class="muted small">Dernière mise à jour : <span id="year"></span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>© <span id="year2"></span> — Thiziri Hamlaoui</div>
+      <a class="link" href="#home">Retour en haut ↑</a>
+    </div>
+  </footer>
+
+  <!-- Back to top button -->
+  <button class="toTop" id="toTop" type="button" aria-label="Retour en haut">↑</button>
+
+  <!-- Modal -->
+  <div class="modal" id="modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal__panel" role="document">
+      <div class="modal__head">
+        <div class="modal__title" id="modalTitle">Titre</div>
+        <button class="iconbtn" id="closeModal" type="button" aria-label="Fermer">✕</button>
+      </div>
+      <div class="modal__body" id="modalBody"></div>
+      <div class="modal__foot">
+        <button class="btn btn--soft" id="modalOk" type="button">OK</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

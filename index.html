@@ -293,211 +293,178 @@
     </div>
   </section>
 
-  <!-- SECTION: Projects / SAÉ -->
-  <section id="projects" class="section section--alt">
-    <div class="container">
-      <div class="section__head reveal">
-        <h2>4) Projets / SAÉ</h2>
-        <p class="muted">Recherche + filtres. Clique sur une carte → mini présentation + détails.</p>
+<section id="projects" class="section section--alt">
+  <div class="container">
+    <div class="section__head reveal">
+      <h2>Projets / SAÉ</h2>
+      <p class="muted">
+        Clique sur une carte : mini présentation + détails. Utilise les filtres et la recherche.
+      </p>
+    </div>
+
+    <!-- Toolbar (filtres + recherche) -->
+    <div class="projectsToolbar reveal">
+      <div class="chipsRow" id="projectFilters">
+        <button class="chipFilter is-active" type="button" data-filter="all">Tout</button>
+        <button class="chipFilter" type="button" data-filter="C1">C1 Traiter</button>
+        <button class="chipFilter" type="button" data-filter="C2">C2 Analyser</button>
+        <button class="chipFilter" type="button" data-filter="C3">C3 Valoriser</button>
+        <button class="chipFilter" type="button" data-filter="C4">C4 Modéliser</button>
       </div>
 
-      <!-- Toolbar -->
-      <div class="projectsToolbar reveal">
-        <div class="chipsRow" id="projectFilters">
-          <button class="chipFilter is-active" type="button" data-filter="all">Tout</button>
-          <button class="chipFilter" type="button" data-filter="C1">C1 Traiter</button>
-          <button class="chipFilter" type="button" data-filter="C2">C2 Analyser</button>
-          <button class="chipFilter" type="button" data-filter="C3">C3 Valoriser</button>
-          <button class="chipFilter" type="button" data-filter="C4">C4 Modéliser</button>
-        </div>
-
-        <div class="searchBox">
-          <input id="projectSearch" type="search" placeholder="Rechercher (ex: Excel, SQL, sondage, CO2, dashboard...)" autocomplete="off" />
-        </div>
-      </div>
-
-      <!-- Cards -->
-      <div class="projectsGrid reveal" id="projectsGrid">
-
-        <!-- Dashboard IUT -->
-        <button class="pCard" type="button"
-          data-modal="dashboard-iut"
-          data-tags="C3 C1"
-          data-search="dashboard excel tableau de bord iut KPI filtres segments candidatures mentions boursiers provenance lycée bac">
-          <div class="pCard__top">
-            <div class="pIcon">🧭</div>
-            <div>
-              <div class="pTitle">Tableau de bord IUT</div>
-              <div class="pMeta">Excel • KPI • Filtres • Reporting</div>
-            </div>
-          </div>
-          <p class="muted">Dashboard interactif : indicateurs + filtres + lecture rapide.</p>
-          <div class="pTags"><span>Valoriser</span><span>Traiter</span></div>
-        </button>
-
-        <!-- Excel KPI -->
-        <button class="pCard" type="button"
-          data-modal="excel-dashboard"
-          data-tags="C3"
-          data-search="excel tableau de bord KPI TCD graphiques dynamiques reporting">
-          <div class="pCard__top">
-            <div class="pIcon">📈</div>
-            <div>
-              <div class="pTitle">Dashboard Excel (KPI)</div>
-              <div class="pMeta">Excel • TCD • Graphiques dynamiques</div>
-            </div>
-          </div>
-          <p class="muted">Reporting clair pour suivre des indicateurs clés.</p>
-          <div class="pTags"><span>Valoriser</span></div>
-        </button>
-
-        <!-- Lecture écriture fichiers -->
-        <button class="pCard" type="button"
-          data-modal="fichiers-python"
-          data-tags="C1"
-          data-search="python lecture écriture fichiers csv extraction regex nettoyage structuration">
-          <div class="pCard__top">
-            <div class="pIcon">📁</div>
-            <div>
-              <div class="pTitle">Lecture/Écriture de fichiers</div>
-              <div class="pMeta">Python • CSV • Structuration</div>
-            </div>
-          </div>
-          <p class="muted">Extraction, nettoyage, export : rendre la donnée exploitable.</p>
-          <div class="pTags"><span>Traiter</span></div>
-        </button>
-
-        <!-- Enquête -->
-        <button class="pCard" type="button"
-          data-modal="enquete"
-          data-tags="C2 C3"
-          data-search="enquête questionnaire analyse réponses restitution rapport synthèse">
-          <div class="pCard__top">
-            <div class="pIcon">📝</div>
-            <div>
-              <div class="pTitle">Enquête (Questionnaire)</div>
-              <div class="pMeta">Méthodo • Analyse • Restitution</div>
-            </div>
-          </div>
-          <p class="muted">Conception du questionnaire + analyse + restitution claire.</p>
-          <div class="pTags"><span>Analyser</span><span>Valoriser</span></div>
-        </button>
-
-        <!-- Estimation sondage -->
-        <button class="pCard" type="button"
-          data-modal="sondage"
-          data-tags="C2 C1"
-          data-search="sondage estimation R simulation intervalles confiance précision taille échantillon">
-          <div class="pCard__top">
-            <div class="pIcon">📊</div>
-            <div>
-              <div class="pTitle">Estimation par sondage</div>
-              <div class="pMeta">R • Simulation • IC</div>
-            </div>
-          </div>
-          <p class="muted">Comprendre la fiabilité d’un sondage et la précision des estimations.</p>
-          <div class="pTags"><span>Analyser</span><span>Traiter</span></div>
-        </button>
-
-        <!-- Régression (SAE 2.03) -->
-        <button class="pCard" type="button"
-          data-modal="regression"
-          data-tags="C2 C4"
-          data-search="régression modèle linéaire non linéaire estimation paramètres a b validation justification">
-          <div class="pCard__top">
-            <div class="pIcon">📐</div>
-            <div>
-              <div class="pTitle">Régression sur données réelles</div>
-              <div class="pMeta">Stats • Modèle • Interprétation</div>
-            </div>
-          </div>
-          <p class="muted">Estimation des paramètres + justification du modèle.</p>
-          <div class="pTags"><span>Analyser</span><span>Modéliser</span></div>
-        </button>
-
-        <!-- Classification tumeurs -->
-        <button class="pCard" type="button"
-          data-modal="tumeurs"
-          data-tags="C4 C2"
-          data-search="classification tumeurs python regression logistique dataset médical variables">
-          <div class="pCard__top">
-            <div class="pIcon">🧬</div>
-            <div>
-              <div class="pTitle">Classification de tumeurs</div>
-              <div class="pMeta">Python • Régression logistique</div>
-            </div>
-          </div>
-          <p class="muted">Préparation des données + modèle + lecture des résultats.</p>
-          <div class="pTags"><span>Modéliser</span><span>Analyser</span></div>
-        </button>
-
-        <!-- SAE 2.01 SQL (bas carbone) -->
-        <button class="pCard" type="button"
-          data-modal="sae201"
-          data-tags="C1 C3"
-          data-search="SAE 2.01 sql postgresql commerce technologies bas carbone FMI trade bilateral metabase base données requêtes">
-          <div class="pCard__top">
-            <div class="pIcon">🗄️</div>
-            <div>
-              <div class="pTitle">SAÉ 2.01 — Base SQL (Bas carbone)</div>
-              <div class="pMeta">SQL • PostgreSQL • Metabase</div>
-            </div>
-          </div>
-          <p class="muted">Conception + création + requêtes + dataviz Metabase.</p>
-          <div class="pTags"><span>Traiter</span><span>Valoriser</span></div>
-        </button>
-
-        <!-- SAE 2.06 CO2 véhicules -->
-        <button class="pCard" type="button"
-          data-modal="sae206"
-          data-tags="C2 C3 C1"
-          data-search="SAE 2.06 véhicules CO2 consommation carburant ademe analyse dataviz rapport spiders ministère transition écologique">
-          <div class="pCard__top">
-            <div class="pIcon">🚗</div>
-            <div>
-              <div class="pTitle">SAÉ 2.06 — CO₂ & Véhicules</div>
-              <div class="pMeta">Analyse • Dataviz • Rapport</div>
-            </div>
-          </div>
-          <p class="muted">Impact carburant/type/gamme sur CO₂ et conso (jeu ADEME).</p>
-          <div class="pTags"><span>Analyser</span><span>Valoriser</span><span>Traiter</span></div>
-        </button>
-
-        <!-- SAE 2.05 Indicateurs performance -->
-        <button class="pCard" type="button"
-          data-modal="sae205"
-          data-tags="C2 C3"
-          data-search="SAE 2.05 indicateurs performance SIG EBE BFR bilan fonctionnel ratios ferme de l'envol maraîchage bio">
-          <div class="pCard__top">
-            <div class="pIcon">🏢</div>
-            <div>
-              <div class="pTitle">SAÉ 2.05 — Indicateurs de performance</div>
-              <div class="pMeta">SIG • BFR • Ratios • Analyse</div>
-            </div>
-          </div>
-          <p class="muted">Analyse financière (SIG, BFR, ratios) sur une entreprise réelle.</p>
-          <div class="pTags"><span>Analyser</span><span>Valoriser</span></div>
-        </button>
-
-        <!-- Reporting / Dataviz (Metabase) -->
-        <button class="pCard" type="button"
-          data-modal="metabase"
-          data-tags="C3 C1"
-          data-search="metabase dataviz dashboard requêtes sql filtres cartes barres courbes commentaires">
-          <div class="pCard__top">
-            <div class="pIcon">📉</div>
-            <div>
-              <div class="pTitle">Dataviz Metabase</div>
-              <div class="pMeta">SQL → Dashboards</div>
-            </div>
-          </div>
-          <p class="muted">Visualisations à partir de requêtes SQL + commentaire décisionnel.</p>
-          <div class="pTags"><span>Valoriser</span><span>Traiter</span></div>
-        </button>
-
+      <div class="searchBox">
+        <input
+          id="projectSearch"
+          type="search"
+          placeholder="Rechercher (ex : Excel, SQL, CO2, sondage, tumeurs...)"
+          autocomplete="off"
+        />
       </div>
     </div>
-  </section>
+
+    <!-- Grid -->
+    <div class="projectsGrid reveal" id="projectsGrid">
+
+      <!-- ✅ ANCIENS (que tu avais déjà) -->
+      <button class="pCard" type="button"
+        data-modal="tumeurs"
+        data-tags="C4 C2"
+        data-search="classification tumeurs python regression logistique medical variables preparation donnees">
+        <div class="pCard__top">
+          <div class="pIcon">🧬</div>
+          <div>
+            <div class="pTitle">Classification de tumeurs</div>
+            <div class="pMeta">Python • Régression logistique</div>
+          </div>
+        </div>
+        <p class="muted">Préparation des données + modèle + interprétation.</p>
+        <div class="pTags"><span>Modéliser</span><span>Analyser</span></div>
+      </button>
+
+      <button class="pCard" type="button"
+        data-modal="sondage"
+        data-tags="C2 C1"
+        data-search="sondage estimation R simulation intervalles confiance precision taille echantillon">
+        <div class="pCard__top">
+          <div class="pIcon">📊</div>
+          <div>
+            <div class="pTitle">Estimation par sondage</div>
+            <div class="pMeta">R • Simulation • IC</div>
+          </div>
+        </div>
+        <p class="muted">Fiabilité d’un sondage + intervalles de confiance.</p>
+        <div class="pTags"><span>Analyser</span><span>Traiter</span></div>
+      </button>
+
+      <button class="pCard" type="button"
+        data-modal="sql"
+        data-tags="C1 C3"
+        data-search="sql postgresql base donnees schema relationnel requetes jointures agregations metabase">
+        <div class="pCard__top">
+          <div class="pIcon">🗄️</div>
+          <div>
+            <div class="pTitle">Projet Base de données</div>
+            <div class="pMeta">SQL • PostgreSQL • Metabase</div>
+          </div>
+        </div>
+        <p class="muted">Schéma + requêtes + dashboards Metabase.</p>
+        <div class="pTags"><span>Traiter</span><span>Valoriser</span></div>
+      </button>
+
+      <button class="pCard" type="button"
+        data-modal="excel"
+        data-tags="C3"
+        data-search="excel dashboard KPI tcd graphiques dynamiques reporting">
+        <div class="pCard__top">
+          <div class="pIcon">📈</div>
+          <div>
+            <div class="pTitle">Dashboard Excel</div>
+            <div class="pMeta">KPI • TCD • Graphiques dynamiques</div>
+          </div>
+        </div>
+        <p class="muted">Reporting clair, lecture rapide.</p>
+        <div class="pTags"><span>Valoriser</span></div>
+      </button>
+
+      <!-- ✅ AJOUTS (plein de SAÉ) -->
+      <button class="pCard" type="button"
+        data-modal="fichiers"
+        data-tags="C1"
+        data-search="python lecture ecriture fichiers csv extraction regex export nettoyage structuration">
+        <div class="pCard__top">
+          <div class="pIcon">📁</div>
+          <div>
+            <div class="pTitle">Lecture / Écriture de fichiers</div>
+            <div class="pMeta">Python • CSV • Nettoyage</div>
+          </div>
+        </div>
+        <p class="muted">Transformer une donnée brute → donnée exploitable.</p>
+        <div class="pTags"><span>Traiter</span></div>
+      </button>
+
+      <button class="pCard" type="button"
+        data-modal="sae201"
+        data-tags="C1 C3"
+        data-search="sae 2.01 commerce technologies bas carbone fmi trade bilateral sql postgresql metabase">
+        <div class="pCard__top">
+          <div class="pIcon">🌍</div>
+          <div>
+            <div class="pTitle">SAÉ 2.01 — Bas carbone</div>
+            <div class="pMeta">SQL • PostgreSQL • Metabase</div>
+          </div>
+        </div>
+        <p class="muted">Base relationnelle + requêtes + dataviz.</p>
+        <div class="pTags"><span>Traiter</span><span>Valoriser</span></div>
+      </button>
+
+      <button class="pCard" type="button"
+        data-modal="sae206"
+        data-tags="C1 C2 C3"
+        data-search="sae 2.06 co2 vehicules ademe carburant consommation type gamme analyse dataviz spiders">
+        <div class="pCard__top">
+          <div class="pIcon">🚗</div>
+          <div>
+            <div class="pTitle">SAÉ 2.06 — CO₂ & véhicules</div>
+            <div class="pMeta">Analyse • Dataviz • Rapport</div>
+          </div>
+        </div>
+        <p class="muted">Impact du carburant/type sur CO₂ & conso.</p>
+        <div class="pTags"><span>Traiter</span><span>Analyser</span><span>Valoriser</span></div>
+      </button>
+
+      <button class="pCard" type="button"
+        data-modal="sae203"
+        data-tags="C2 C4"
+        data-search="sae 2.03 regression modele estimation parametres validation interpretation">
+        <div class="pCard__top">
+          <div class="pIcon">📐</div>
+          <div>
+            <div class="pTitle">SAÉ 2.03 — Régression</div>
+            <div class="pMeta">Stats • Modélisation • Interprétation</div>
+          </div>
+        </div>
+        <p class="muted">Construire/justifier un modèle de régression.</p>
+        <div class="pTags"><span>Analyser</span><span>Modéliser</span></div>
+      </button>
+
+      <button class="pCard" type="button"
+        data-modal="sae205"
+        data-tags="C2 C3"
+        data-search="sae 2.05 indicateurs performance sig ebe bfr bilan fonctionnel ratios ferme envol">
+        <div class="pCard__top">
+          <div class="pIcon">🏢</div>
+          <div>
+            <div class="pTitle">SAÉ 2.05 — Performance</div>
+            <div class="pMeta">SIG • BFR • Ratios • Synthèse</div>
+          </div>
+        </div>
+        <p class="muted">Analyse d’indicateurs et restitution.</p>
+        <div class="pTags"><span>Analyser</span><span>Valoriser</span></div>
+      </button>
+
+    </div>
+  </div>
+</section>
 
   <!-- SECTION: Bilan SAE -->
   <section id="sae" class="section">

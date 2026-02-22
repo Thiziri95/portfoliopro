@@ -339,73 +339,184 @@
     </div>
   </section>
 
-  <!-- SECTION: Projects / SAE cards + modal -->
-  <section id="projects" class="section section--alt">
-    <div class="container">
-      <div class="section__head reveal">
-        <h2>4) Projets / SAÉ</h2>
-        <p class="muted">Une sélection de projets représentatifs (clic → détails).</p>
+  <!-- SECTION: Projects / SAÉ cards + modal -->
+<section id="projects" class="section section--alt">
+  <div class="container">
+    <div class="section__head reveal">
+      <h2>4) Projets / SAÉ</h2>
+      <p class="muted">Une sélection de projets représentatifs (clic → mini présentation + détails).</p>
+    </div>
+
+    <!-- Optional: mini filtres (si tu veux, ça marche même sans JS) -->
+    <div class="projectsToolbar reveal">
+      <div class="chipsRow">
+        <button class="chipFilter is-active" type="button" data-filter="all">Tout</button>
+        <button class="chipFilter" type="button" data-filter="traiter">Traiter</button>
+        <button class="chipFilter" type="button" data-filter="analyser">Analyser</button>
+        <button class="chipFilter" type="button" data-filter="valoriser">Valoriser</button>
+        <button class="chipFilter" type="button" data-filter="modeliser">Modéliser</button>
       </div>
 
-      <div class="projectsGrid reveal">
-        <button class="pCard" type="button" data-modal="tumeurs">
-          <div class="pCard__top">
-            <div class="pIcon">🧬</div>
-            <div>
-              <div class="pTitle">Classification de tumeurs</div>
-              <div class="pMeta">Python • Régression logistique • Dataset médical</div>
-            </div>
-          </div>
-          <p class="muted">Préparation des données, sélection de variables, apprentissage et interprétation.</p>
-          <div class="pTags">
-            <span>Modéliser</span><span>Analyser</span>
-          </div>
-        </button>
-
-        <button class="pCard" type="button" data-modal="sondage">
-          <div class="pCard__top">
-            <div class="pIcon">📊</div>
-            <div>
-              <div class="pTitle">Estimation par sondage</div>
-              <div class="pMeta">R • Simulation • IC • Comparaison de précision</div>
-            </div>
-          </div>
-          <p class="muted">Création de fonctions R pour tirer des échantillons et analyser la fiabilité.</p>
-          <div class="pTags">
-            <span>Analyser</span><span>Traiter</span>
-          </div>
-        </button>
-
-        <button class="pCard" type="button" data-modal="sql">
-          <div class="pCard__top">
-            <div class="pIcon">🗄️</div>
-            <div>
-              <div class="pTitle">Projet base de données</div>
-              <div class="pMeta">SQL • PostgreSQL • Metabase</div>
-            </div>
-          </div>
-          <p class="muted">Schéma relationnel, requêtes, extraction et visualisation orientée décision.</p>
-          <div class="pTags">
-            <span>Traiter</span><span>Valoriser</span>
-          </div>
-        </button>
-
-        <button class="pCard" type="button" data-modal="excel">
-          <div class="pCard__top">
-            <div class="pIcon">📈</div>
-            <div>
-              <div class="pTitle">Dashboard Excel</div>
-              <div class="pMeta">TCD • Graphiques dynamiques • KPI</div>
-            </div>
-          </div>
-          <p class="muted">Construire une visualisation utile : claire, lisible, exploitable.</p>
-          <div class="pTags">
-            <span>Valoriser</span>
-          </div>
-        </button>
+      <div class="searchBox">
+        <input id="projectSearch" type="search" placeholder="Rechercher un projet (ex : Excel, SQL, sondage, tumeurs…)" aria-label="Rechercher un projet">
       </div>
     </div>
-  </section>
+
+    <div class="projectsGrid reveal" id="projectsGrid">
+
+      <!-- ✅ Dashboard (image) -->
+      <button class="pCard" type="button" data-modal="dashboard-iut" data-tags="valoriser traiter">
+        <div class="pCard__top">
+          <div class="pIcon">🧭</div>
+          <div>
+            <div class="pTitle">Dashboard interactif — IUT</div>
+            <div class="pMeta">Excel • KPI • Segmentation • Dataviz</div>
+          </div>
+        </div>
+        <p class="muted">Tableau de bord pour analyser profils, candidatures, mentions, boursiers…</p>
+        <div class="pTags">
+          <span>Valoriser</span><span>Traiter</span>
+        </div>
+      </button>
+
+      <!-- ✅ Classification tumeurs -->
+      <button class="pCard" type="button" data-modal="tumeurs" data-tags="modeliser analyser traiter">
+        <div class="pCard__top">
+          <div class="pIcon">🧬</div>
+          <div>
+            <div class="pTitle">Classification de tumeurs</div>
+            <div class="pMeta">Python • Régression logistique • Dataset médical</div>
+          </div>
+        </div>
+        <p class="muted">Préparation des données, variables discriminantes, modèle + interprétation.</p>
+        <div class="pTags">
+          <span>Modéliser</span><span>Analyser</span><span>Traiter</span>
+        </div>
+      </button>
+
+      <!-- ✅ Sondages / estimation -->
+      <button class="pCard" type="button" data-modal="sondage" data-tags="analyser traiter">
+        <div class="pCard__top">
+          <div class="pIcon">📊</div>
+          <div>
+            <div class="pTitle">Estimation par sondage</div>
+            <div class="pMeta">R • Simulation • IC • Comparaison de précision</div>
+          </div>
+        </div>
+        <p class="muted">Fonctions R, tirages, intervalles de confiance, analyse de précision.</p>
+        <div class="pTags">
+          <span>Analyser</span><span>Traiter</span>
+        </div>
+      </button>
+
+      <!-- ✅ Enquête / questionnaire -->
+      <button class="pCard" type="button" data-modal="enquete-alimentaire" data-tags="traiter analyser valoriser">
+        <div class="pCard__top">
+          <div class="pIcon">📝</div>
+          <div>
+            <div class="pTitle">Enquête alimentaire</div>
+            <div class="pMeta">Questionnaire • Nettoyage • Analyse • Restitution</div>
+          </div>
+        </div>
+        <p class="muted">Conception du questionnaire + exploitation des réponses.</p>
+        <div class="pTags">
+          <span>Traiter</span><span>Analyser</span><span>Valoriser</span>
+        </div>
+      </button>
+
+      <!-- ✅ Projet base SQL + Metabase -->
+      <button class="pCard" type="button" data-modal="sql-metabase" data-tags="traiter valoriser analyser">
+        <div class="pCard__top">
+          <div class="pIcon">🗄️</div>
+          <div>
+            <div class="pTitle">Base de données + Metabase</div>
+            <div class="pMeta">SQL • PostgreSQL • Requêtes • Dataviz</div>
+          </div>
+        </div>
+        <p class="muted">Schéma relationnel, requêtes d’analyse, graphiques Metabase.</p>
+        <div class="pTags">
+          <span>Traiter</span><span>Valoriser</span><span>Analyser</span>
+        </div>
+      </button>
+
+      <!-- ✅ Reporting / dataviz sur données publiques -->
+      <button class="pCard" type="button" data-modal="reporting-dataviz" data-tags="traiter analyser valoriser">
+        <div class="pCard__top">
+          <div class="pIcon">📈</div>
+          <div>
+            <div class="pTitle">Analyse & reporting (données publiques)</div>
+            <div class="pMeta">Nettoyage • Stat desc • Excel • Rapport</div>
+          </div>
+        </div>
+        <p class="muted">Cadrage d’étude, nettoyage, indicateurs, visualisations.</p>
+        <div class="pTags">
+          <span>Traiter</span><span>Analyser</span><span>Valoriser</span>
+        </div>
+      </button>
+
+      <!-- ✅ Python fichiers -->
+      <button class="pCard" type="button" data-modal="python-fichiers" data-tags="traiter">
+        <div class="pCard__top">
+          <div class="pIcon">🧾</div>
+          <div>
+            <div class="pTitle">Lecture / écriture de fichiers (Python)</div>
+            <div class="pMeta">CSV • Parsing • Regex • Export</div>
+          </div>
+        </div>
+        <p class="muted">Extraction d’infos, nettoyage, export CSV, scripts réutilisables.</p>
+        <div class="pTags">
+          <span>Traiter</span>
+        </div>
+      </button>
+
+      <!-- ✅ SAÉ EMS - IA & étudiants -->
+      <button class="pCard" type="button" data-modal="ems-ia-sondage" data-tags="analyser traiter valoriser">
+        <div class="pCard__top">
+          <div class="pIcon">🤖</div>
+          <div>
+            <div class="pTitle">Enquête IA & étudiants (EMS)</div>
+            <div class="pMeta">R • Nettoyage • IC • Post-stratification</div>
+          </div>
+        </div>
+        <p class="muted">Perception de l’IA : créativité, préparation pro, productivité.</p>
+        <div class="pTags">
+          <span>Analyser</span><span>Traiter</span><span>Valoriser</span>
+        </div>
+      </button>
+
+      <!-- ✅ SAÉ CO2 / véhicules “Les Spiders” -->
+      <button class="pCard" type="button" data-modal="co2-spiders" data-tags="analyser valoriser traiter">
+        <div class="pCard__top">
+          <div class="pIcon">🌍</div>
+          <div>
+            <div class="pTitle">CO₂ véhicules — “Les Spiders”</div>
+            <div class="pMeta">Nettoyage • Stat desc • Reco • Storytelling</div>
+          </div>
+        </div>
+        <p class="muted">Analyse conso/CO₂ selon carburant, type/gamme, recommandations.</p>
+        <div class="pTags">
+          <span>Analyser</span><span>Valoriser</span><span>Traiter</span>
+        </div>
+      </button>
+
+      <!-- ✅ SAÉ 2.05 indicateurs / performance -->
+      <button class="pCard" type="button" data-modal="indicateurs-ferme" data-tags="analyser valoriser">
+        <div class="pCard__top">
+          <div class="pIcon">🧮</div>
+          <div>
+            <div class="pTitle">Indicateurs de performance (SAÉ 2.05)</div>
+            <div class="pMeta">SIG • Ratios • Bilan fonctionnel • Analyse</div>
+          </div>
+        </div>
+        <p class="muted">Analyse financière structurée (SIG, ratios, cycles, BFR…).</p>
+        <div class="pTags">
+          <span>Analyser</span><span>Valoriser</span>
+        </div>
+      </button>
+
+    </div>
+  </div>
+</section>
 
   <!-- SECTION: SAE summary (C1..C4) -->
   <section id="sae" class="section">

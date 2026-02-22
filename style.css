@@ -704,3 +704,31 @@ html[data-theme="light"] .modal__panel{ background: rgba(255,255,255,.92); }
   .projectsGrid{ grid-template-columns: 1fr; }
   .searchBox{ min-width: 100%; }
 }
+/* =========================
+   QUALITIES (Mes qualités)
+   ========================= */
+.qualities{
+  display:grid;
+  gap:12px;
+  margin-top:12px;
+}
+
+.q{
+  padding: 12px;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,.05);
+}
+
+html[data-theme="light"] .q{
+  background: rgba(10,15,30,.05);
+}
+
+.q__t{
+  font-weight: 900;
+  margin-bottom: 4px;
+}
+
+.q__d{
+  color: var(--muted);
+}

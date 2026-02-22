@@ -65,7 +65,9 @@
   };
 
   const navObs = new IntersectionObserver((entries) => {
-    const top = entries.filter(e => e.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];
+    const top = entries
+      .filter(e => e.isIntersecting)
+      .sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];
     if (!top) return;
     const id = top.target.getAttribute("id");
     if (id) setActive(id);
@@ -129,195 +131,163 @@
     }
   });
 
-  // ===== MODAL (projects)
+  // ===== MODAL (projects) — FIX: tous les projets cliquables
   const modal = document.getElementById("modal");
   const closeModal = document.getElementById("closeModal");
   const modalOk = document.getElementById("modalOk");
   const modalTitle = document.getElementById("modalTitle");
   const modalBody = document.getElementById("modalBody");
-  const modalFoot = document.getElementById("modalFoot");
 
   const MODALS = {
-    "dashboard-iut": {
-      title: "Tableau de bord IUT (Excel)",
+    // anciens
+    tumeurs: {
+      title: "Classification de tumeurs (Python)",
       body: `
-        <p class="muted"><strong>Mini présentation :</strong> Dashboard interactif Excel (KPI + filtres) pour analyser profils/candidatures/mentions/lycées/boursiers.</p>
+        <p><strong>Mini présentation :</strong> Première approche de classification sur un jeu de données médical.</p>
         <div class="divider"></div>
-        <p><strong>Objectif :</strong> rendre la donnée lisible et exploitable rapidement.</p>
         <ul>
-          <li>KPI + graphiques cohérents</li>
-          <li>Segments/filtres pour explorer</li>
-          <li>Mise en page “lecture rapide”</li>
+          <li>Préparation des données (nettoyage, structuration)</li>
+          <li>Choix/lecture des variables importantes</li>
+          <li>Modélisation : régression logistique</li>
+          <li>Interprétation des résultats (rigueur + logique)</li>
         </ul>
-        <p class="muted small"><strong>Compétences :</strong> C3 Valoriser, C1 Traiter.</p>
+        <p class="muted small"><strong>Compétences :</strong> C4 Modéliser, C2 Analyser.</p>
       `
     },
-
-    "excel-dashboard": {
-      title: "Dashboard Excel (KPI)",
+    sondage: {
+      title: "Estimation par sondage (R)",
       body: `
-        <p class="muted"><strong>Mini présentation :</strong> Reporting Excel centré KPI : TCD + graphiques dynamiques.</p>
+        <p><strong>Mini présentation :</strong> Comprendre la fiabilité d’un sondage via simulation et intervalles de confiance.</p>
         <div class="divider"></div>
-        <p><strong>Objectif :</strong> produire un tableau de bord clair et professionnel.</p>
         <ul>
-          <li>TCD (tableaux croisés) + segments</li>
-          <li>Graphiques dynamiques</li>
-          <li>Indicateurs clés + synthèse</li>
+          <li>Fonctions R : tirages aléatoires et estimations</li>
+          <li>Estimation ponctuelle + intervalle de confiance</li>
+          <li>Comparaison de précision selon la taille d’échantillon</li>
+        </ul>
+        <p class="muted small"><strong>Compétences :</strong> C2 Analyser, C1 Traiter.</p>
+      `
+    },
+    sql: {
+      title: "Projet Base de données (SQL + PostgreSQL + Metabase)",
+      body: `
+        <p><strong>Mini présentation :</strong> Structurer et exploiter des données dans un SGBD relationnel.</p>
+        <div class="divider"></div>
+        <ul>
+          <li>Conception : schéma relationnel</li>
+          <li>Requêtes : jointures, agrégations</li>
+          <li>Exploitation + visualisation dans Metabase</li>
+          <li>Commentaires orientés décision</li>
+        </ul>
+        <p class="muted small"><strong>Compétences :</strong> C1 Traiter, C3 Valoriser.</p>
+      `
+    },
+    excel: {
+      title: "Dashboard Excel (KPI + graphiques dynamiques)",
+      body: `
+        <p><strong>Mini présentation :</strong> Reporting clair et directement exploitable.</p>
+        <div class="divider"></div>
+        <ul>
+          <li>TCD + segments</li>
+          <li>Graphiques dynamiques + KPI</li>
+          <li>Mise en forme “lecture rapide”</li>
         </ul>
         <p class="muted small"><strong>Compétences :</strong> C3 Valoriser.</p>
       `
     },
 
-    "fichiers-python": {
+    // ajouts
+    fichiers: {
       title: "Lecture / Écriture de fichiers (Python)",
       body: `
-        <p class="muted"><strong>Mini présentation :</strong> Manipulation de fichiers (CSV / texte) : extraction, nettoyage, structuration et export.</p>
+        <p><strong>Mini présentation :</strong> Manipulation de données brutes (CSV/texte) pour les rendre propres et utilisables.</p>
         <div class="divider"></div>
-        <p><strong>Objectif :</strong> rendre des données exploitables pour l’analyse.</p>
         <ul>
-          <li>Lecture/écriture CSV</li>
-          <li>Nettoyage + mise en forme</li>
-          <li>Structuration pour analyse</li>
+          <li>Lecture de fichiers (CSV, texte)</li>
+          <li>Nettoyage : formats, valeurs manquantes, cohérence</li>
+          <li>Extraction d’informations (si besoin : regex)</li>
+          <li>Export en CSV propre pour analyse</li>
         </ul>
         <p class="muted small"><strong>Compétences :</strong> C1 Traiter.</p>
       `
     },
 
-    "enquete": {
-      title: "Enquête (Questionnaire)",
-      body: `
-        <p class="muted"><strong>Mini présentation :</strong> Projet “enquête” : construire un questionnaire, analyser les réponses, restituer clairement.</p>
-        <div class="divider"></div>
-        <p><strong>Objectif :</strong> obtenir une information fiable et exploitable.</p>
-        <ul>
-          <li>Conception des questions</li>
-          <li>Analyse des réponses</li>
-          <li>Restitution (synthèse / rapport)</li>
-        </ul>
-        <p class="muted small"><strong>Compétences :</strong> C2 Analyser, C3 Valoriser.</p>
-      `
-    },
-
-    "sondage": {
-      title: "Estimation par sondage (R)",
-      body: `
-        <p class="muted"><strong>Mini présentation :</strong> Simulation pour comprendre la précision d’un sondage (estimation + intervalle de confiance).</p>
-        <div class="divider"></div>
-        <p><strong>Objectif :</strong> comparer la précision selon la taille d’échantillon.</p>
-        <ul>
-          <li>Fonctions R : tirages aléatoires</li>
-          <li>Estimations ponctuelles + IC</li>
-          <li>Comparaison selon n</li>
-        </ul>
-        <p class="muted small"><strong>Compétences :</strong> C2 Analyser, C1 Traiter.</p>
-      `
-    },
-
-    "regression": {
-      title: "Régression sur données réelles (SAÉ 2.03)",
-      body: `
-        <p class="muted"><strong>Mini présentation :</strong> Modélisation par régression : estimer des paramètres et vérifier si le modèle est justifié.</p>
-        <div class="divider"></div>
-        <p><strong>Objectif :</strong> construire un modèle interprétable et argumenter son choix.</p>
-        <ul>
-          <li>Choix du type de modèle</li>
-          <li>Estimation des paramètres (ex : a, b)</li>
-          <li>Interprétation + limites</li>
-        </ul>
-        <p class="muted small"><strong>Compétences :</strong> C2 Analyser, C4 Modéliser.</p>
-      `
-    },
-
-    "tumeurs": {
-      title: "Classification de tumeurs (Python)",
-      body: `
-        <p class="muted"><strong>Mini présentation :</strong> Première approche de classification sur un dataset médical.</p>
-        <div class="divider"></div>
-        <p><strong>Objectif :</strong> comprendre la logique d’un modèle de classification simple.</p>
-        <ul>
-          <li>Nettoyage + structuration</li>
-          <li>Choix de variables importantes</li>
-          <li>Régression logistique</li>
-          <li>Interprétation des résultats</li>
-        </ul>
-        <p class="muted small"><strong>Compétences :</strong> C4 Modéliser, C2 Analyser.</p>
-      `
-    },
-
-    "sae201": {
+    sae201: {
       title: "SAÉ 2.01 — Commerce des technologies bas carbone (SQL)",
       body: `
-        <p class="muted"><strong>Mini présentation :</strong> Projet complet de base de données relationnelle (données FMI) + requêtes + visualisations.</p>
+        <p><strong>Mini présentation :</strong> Projet complet : modélisation + création + exploitation d’une base SQL à partir de données FMI.</p>
         <div class="divider"></div>
-        <p><strong>Objectif :</strong> modéliser, créer et exploiter une base PostgreSQL à partir de jeux de données réels.</p>
         <ul>
           <li>Modèle EA → schéma relationnel</li>
-          <li>Création + peuplement + intégrité</li>
+          <li>Création & peuplement en SQL</li>
           <li>Requêtes d’analyse (jointures, agrégats)</li>
-          <li>Dataviz dans Metabase + commentaires</li>
+          <li>Dataviz Metabase + interprétation</li>
         </ul>
         <p class="muted small"><strong>Compétences :</strong> C1 Traiter, C3 Valoriser.</p>
       `
     },
 
-    "sae206": {
+    sae206: {
       title: "SAÉ 2.06 — CO₂ & véhicules (Analyse + Dataviz)",
       body: `
-        <p class="muted"><strong>Mini présentation :</strong> Analyse d’un dataset ADEME sur les émissions de CO₂ et la consommation des véhicules.</p>
+        <p><strong>Mini présentation :</strong> Analyse d’un dataset ADEME : émissions CO₂ & consommation selon carburant/type/gamme.</p>
         <div class="divider"></div>
-        <p><strong>Objectif :</strong> comprendre l’impact du carburant, de la gamme et du type sur CO₂ et conso.</p>
         <ul>
           <li>Nettoyage + structuration des données</li>
           <li>Stats descriptives + comparaisons</li>
-          <li>Visualisations et interprétation</li>
-          <li>Rapport + recommandations</li>
+          <li>Dataviz + commentaire scientifique</li>
+          <li>Recommandations (approche “client”)</li>
         </ul>
         <p class="muted small"><strong>Compétences :</strong> C1 Traiter, C2 Analyser, C3 Valoriser.</p>
       `
     },
 
-    "sae205": {
-      title: "SAÉ 2.05 — Indicateurs de performance (Analyse financière)",
+    sae203: {
+      title: "SAÉ 2.03 — Régression sur données réelles",
       body: `
-        <p class="muted"><strong>Mini présentation :</strong> Étude d’une entreprise : compte de résultat, SIG, BFR, bilan fonctionnel, ratios.</p>
+        <p><strong>Mini présentation :</strong> Construire un modèle de régression et justifier les choix.</p>
         <div class="divider"></div>
-        <p><strong>Objectif :</strong> analyser la performance et la structure financière de l’entreprise.</p>
         <ul>
-          <li>Analyse du secteur + contexte</li>
-          <li>Compte de résultat, SIG (EBE...)</li>
-          <li>BFR, bilan fonctionnel, ratios</li>
-          <li>Synthèse argumentée</li>
+          <li>Choix du modèle (linéaire/non-linéaire)</li>
+          <li>Estimation des paramètres</li>
+          <li>Validation + limites</li>
+          <li>Interprétation des résultats</li>
         </ul>
-        <p class="muted small"><strong>Compétences :</strong> C2 Analyser, C3 Valoriser.</p>
+        <p class="muted small"><strong>Compétences :</strong> C2 Analyser, C4 Modéliser.</p>
       `
     },
 
-    "metabase": {
-      title: "Dataviz Metabase (SQL → Dashboard)",
+    sae205: {
+      title: "SAÉ 2.05 — Indicateurs de performance",
       body: `
-        <p class="muted"><strong>Mini présentation :</strong> Création de visualisations à partir de requêtes SQL et restitution “décision”.</p>
+        <p><strong>Mini présentation :</strong> Étude de performance d’une entreprise : SIG, BFR, ratios, synthèse.</p>
         <div class="divider"></div>
-        <p><strong>Objectif :</strong> transformer une requête en dashboard compréhensible.</p>
         <ul>
-          <li>Graphiques adaptés (barres, courbes...)</li>
-          <li>Filtres + segmentation</li>
-          <li>Commentaires orientés conclusion</li>
+          <li>Analyse du secteur + contexte</li>
+          <li>Compte de résultat + SIG</li>
+          <li>BFR, bilan fonctionnel, ratios</li>
+          <li>Restitution structurée (diagnostic)</li>
         </ul>
-        <p class="muted small"><strong>Compétences :</strong> C3 Valoriser, C1 Traiter.</p>
+        <p class="muted small"><strong>Compétences :</strong> C2 Analyser, C3 Valoriser.</p>
       `
     }
   };
 
   const openModal = (key) => {
-    if (!modal || !modalTitle || !modalBody || !modalFoot) return;
+    if (!modal || !modalTitle || !modalBody) return;
+
     const data = MODALS[key];
-    if (!data) return;
 
-    modalTitle.textContent = data.title;
-    modalBody.innerHTML = data.body;
-
-    // Reset footer (keeps OK button)
-    modalFoot.querySelectorAll("a[data-modal-link]")?.forEach(a => a.remove());
+    // fallback si un data-modal existe mais pas de contenu (au lieu de “rien”)
+    if (!data) {
+      modalTitle.textContent = "Détails du projet";
+      modalBody.innerHTML = `
+        <p class="muted">Ce projet n’a pas encore sa fiche détaillée.</p>
+        <p>Tu peux me dire le nom exact et je te fais la fiche complète.</p>
+      `;
+    } else {
+      modalTitle.textContent = data.title;
+      modalBody.innerHTML = data.body;
+    }
 
     modal.classList.add("open");
     modal.setAttribute("aria-hidden", "false");
@@ -331,8 +301,12 @@
     document.body.style.overflow = "";
   };
 
-  document.querySelectorAll("[data-modal]")?.forEach(btn => {
-    btn.addEventListener("click", () => openModal(btn.getAttribute("data-modal")));
+  // ✅ FIX: délégation d’événement => même si tes cartes changent, ça marche
+  document.addEventListener("click", (e) => {
+    const btn = e.target.closest("[data-modal]");
+    if (!btn) return;
+    const key = btn.getAttribute("data-modal");
+    if (key) openModal(key);
   });
 
   closeModal?.addEventListener("click", hideModal);
@@ -340,31 +314,41 @@
   modal?.addEventListener("click", (e) => { if (e.target === modal) hideModal(); });
   window.addEventListener("keydown", (e) => { if (e.key === "Escape") hideModal(); });
 
-  // ===== PROJECT FILTERS + SEARCH
+  // ===== FILTERS + SEARCH — FIX: fonctionne vraiment
   const filtersWrap = document.getElementById("projectFilters");
   const searchInput = document.getElementById("projectSearch");
-  const cards = Array.from(document.querySelectorAll("#projectsGrid .pCard"));
+  const grid = document.getElementById("projectsGrid");
 
   let activeFilter = "all";
   let searchQuery = "";
 
   const normalize = (s) =>
-    (s || "").toLowerCase().normalize("NFD").replace(/\p{Diacritic}/gu, "");
+    (s || "")
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "");
 
   const applyProjectsFilter = () => {
+    if (!grid) return;
+    const cards = Array.from(grid.querySelectorAll(".pCard"));
     const q = normalize(searchQuery);
 
     cards.forEach(card => {
-      const tags = (card.getAttribute("data-tags") || "").split(/\s+/).filter(Boolean);
-      const hay = normalize(card.getAttribute("data-search") || "") + " " + normalize(card.innerText);
+      const tags = (card.getAttribute("data-tags") || "")
+        .split(/\s+/)
+        .filter(Boolean);
+
+      const searchBlob =
+        normalize(card.getAttribute("data-search")) + " " + normalize(card.textContent);
 
       const passFilter = (activeFilter === "all") || tags.includes(activeFilter);
-      const passSearch = !q || hay.includes(q);
+      const passSearch = !q || searchBlob.includes(q);
 
       card.classList.toggle("is-hidden", !(passFilter && passSearch));
     });
   };
 
+  // click sur filtre
   filtersWrap?.addEventListener("click", (e) => {
     const btn = e.target.closest("[data-filter]");
     if (!btn) return;
@@ -377,9 +361,15 @@
     applyProjectsFilter();
   });
 
+  // recherche (pas besoin d’Entrée, filtre instant)
   searchInput?.addEventListener("input", () => {
     searchQuery = searchInput.value || "";
     applyProjectsFilter();
+  });
+
+  // si tu appuies Entrée, on force aussi
+  searchInput?.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") applyProjectsFilter();
   });
 
   // ===== PARTICLES (soft)

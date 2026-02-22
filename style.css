@@ -666,3 +666,56 @@ html[data-theme="light"] .modal__panel{ background: rgba(255,255,255,.92); }
   .burger{ display:block; }
   .projectsGrid{ grid-template-columns: 1fr; }
 }
+/* ===== Projects toolbar (filtres + recherche) ===== */
+.projectsToolbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  flex-wrap:wrap;
+  margin:14px 0 18px;
+}
+
+.chipFilter{
+  border:1px solid var(--border);
+  background: var(--panel);
+  padding:10px 12px;
+  border-radius:999px;
+  color:var(--text);
+  cursor:pointer;
+  transition:transform var(--speed), border-color var(--speed), background var(--speed);
+  font-weight:800;
+  font-size:14px;
+}
+.chipFilter:hover{
+  transform: translateY(-1px);
+  border-color: rgba(167,139,250,.6);
+  background: var(--panel2);
+}
+.chipFilter.is-active{
+  border-color: rgba(167,139,250,.85);
+  box-shadow: 0 0 0 6px rgba(167,139,250,.14);
+}
+
+.searchBox{
+  flex:1;
+  min-width:260px;
+  max-width:520px;
+}
+.searchBox input{
+  width:100%;
+  padding:12px 14px;
+  border-radius:14px;
+  border:1px solid var(--border);
+  background: var(--panel);
+  color:var(--text);
+  outline:none;
+}
+.searchBox input::placeholder{ color: var(--muted2); }
+.searchBox input:focus{
+  border-color: rgba(124,235,255,.65);
+  box-shadow: 0 0 0 6px rgba(124,235,255,.14);
+}
+
+/* Hide cards when filtered */
+.pCard.is-hidden{ display:none !important; }

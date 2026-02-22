@@ -409,18 +409,6 @@ html[data-theme="light"] .bar{ background: rgba(10,15,30,.06); }
 .note__k{ font-weight:800; color: var(--muted2); font-size:.86rem; margin-bottom:6px; }
 .note__v{ color: var(--muted); }
 
-/* qualities */
-.qualities{ display:grid; gap: 12px; margin-top: 12px; }
-.q{
-  padding: 12px;
-  border-radius: 18px;
-  border:1px solid var(--border);
-  background: rgba(255,255,255,.05);
-}
-html[data-theme="light"] .q{ background: rgba(10,15,30,.05); }
-.q__t{ font-weight:900; margin-bottom: 4px; }
-.q__d{ color: var(--muted); }
-
 .chipsRow{ display:flex; flex-wrap:wrap; gap:10px; margin: 12px 0 6px; }
 .chip2{
   padding: 7px 10px;
@@ -432,7 +420,9 @@ html[data-theme="light"] .q{ background: rgba(10,15,30,.05); }
   font-size:.88rem;
 }
 
-/* projects */
+/* =========================
+   PROJECTS (cards)
+   ========================= */
 .projectsGrid{
   display:grid;
   grid-template-columns: repeat(4, minmax(0,1fr));
@@ -474,6 +464,58 @@ html[data-theme="light"] .q{ background: rgba(10,15,30,.05); }
   background: rgba(255,255,255,.05);
 }
 html[data-theme="light"] .pTags span{ background: rgba(10,15,30,.05); }
+
+/* =========================
+   Projects toolbar (filters + search)
+   ========================= */
+.projectsToolbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  flex-wrap:wrap;
+  margin:14px 0 18px;
+}
+.chipFilter{
+  border:1px solid var(--border);
+  background: var(--panel);
+  padding:10px 12px;
+  border-radius:999px;
+  color:var(--text);
+  cursor:pointer;
+  transition:transform var(--speed), border-color var(--speed), background var(--speed);
+  font-weight:800;
+  font-size:14px;
+}
+.chipFilter:hover{
+  transform: translateY(-1px);
+  border-color: rgba(167,139,250,.6);
+  background: var(--panel2);
+}
+.chipFilter.is-active{
+  border-color: rgba(167,139,250,.75);
+  box-shadow: 0 0 0 6px rgba(167,139,250,.14);
+}
+.searchBox{
+  flex:1;
+  min-width:260px;
+  max-width:520px;
+}
+.searchBox input{
+  width:100%;
+  padding:12px 14px;
+  border-radius:14px;
+  border:1px solid var(--border);
+  background: var(--panel);
+  color:var(--text);
+  outline:none;
+}
+.searchBox input::placeholder{ color: var(--muted2); }
+.searchBox input:focus{
+  border-color: rgba(124,235,255,.65);
+  box-shadow: 0 0 0 6px rgba(124,235,255,.14);
+}
+.pCard.is-hidden{ display:none; }
 
 /* Contact */
 .contactList{ display:grid; gap: 12px; margin-top: 10px; }
@@ -596,6 +638,8 @@ html[data-theme="light"] .modal__panel{ background: rgba(255,255,255,.92); }
   border-top: 1px solid var(--border);
   display:flex;
   justify-content:flex-end;
+  gap:10px;
+  flex-wrap:wrap;
 }
 
 /* Reveal */

@@ -135,67 +135,189 @@
   const modalOk = document.getElementById("modalOk");
   const modalTitle = document.getElementById("modalTitle");
   const modalBody = document.getElementById("modalBody");
+  const modalFoot = document.getElementById("modalFoot");
 
   const MODALS = {
-    tumeurs: {
-      title: "Classification de tumeurs (Python)",
+    "dashboard-iut": {
+      title: "Tableau de bord IUT (Excel)",
       body: `
-        <p><strong>Objectif :</strong> construire une première approche de classification sur un jeu de données médical.</p>
+        <p class="muted"><strong>Mini présentation :</strong> Dashboard interactif Excel (KPI + filtres) pour analyser profils/candidatures/mentions/lycées/boursiers.</p>
+        <div class="divider"></div>
+        <p><strong>Objectif :</strong> rendre la donnée lisible et exploitable rapidement.</p>
         <ul>
-          <li>Préparation des données (nettoyage, structuration)</li>
-          <li>Choix/lecture des variables importantes</li>
-          <li>Modélisation par régression logistique</li>
-          <li>Interprétation des résultats (logique + rigueur)</li>
+          <li>KPI + graphiques cohérents</li>
+          <li>Segments/filtres pour explorer</li>
+          <li>Mise en page “lecture rapide”</li>
         </ul>
-        <p class="muted small">Compétences : Modéliser (C4), Analyser (C2).</p>
+        <p class="muted small"><strong>Compétences :</strong> C3 Valoriser, C1 Traiter.</p>
       `
     },
-    sondage: {
+
+    "excel-dashboard": {
+      title: "Dashboard Excel (KPI)",
+      body: `
+        <p class="muted"><strong>Mini présentation :</strong> Reporting Excel centré KPI : TCD + graphiques dynamiques.</p>
+        <div class="divider"></div>
+        <p><strong>Objectif :</strong> produire un tableau de bord clair et professionnel.</p>
+        <ul>
+          <li>TCD (tableaux croisés) + segments</li>
+          <li>Graphiques dynamiques</li>
+          <li>Indicateurs clés + synthèse</li>
+        </ul>
+        <p class="muted small"><strong>Compétences :</strong> C3 Valoriser.</p>
+      `
+    },
+
+    "fichiers-python": {
+      title: "Lecture / Écriture de fichiers (Python)",
+      body: `
+        <p class="muted"><strong>Mini présentation :</strong> Manipulation de fichiers (CSV / texte) : extraction, nettoyage, structuration et export.</p>
+        <div class="divider"></div>
+        <p><strong>Objectif :</strong> rendre des données exploitables pour l’analyse.</p>
+        <ul>
+          <li>Lecture/écriture CSV</li>
+          <li>Nettoyage + mise en forme</li>
+          <li>Structuration pour analyse</li>
+        </ul>
+        <p class="muted small"><strong>Compétences :</strong> C1 Traiter.</p>
+      `
+    },
+
+    "enquete": {
+      title: "Enquête (Questionnaire)",
+      body: `
+        <p class="muted"><strong>Mini présentation :</strong> Projet “enquête” : construire un questionnaire, analyser les réponses, restituer clairement.</p>
+        <div class="divider"></div>
+        <p><strong>Objectif :</strong> obtenir une information fiable et exploitable.</p>
+        <ul>
+          <li>Conception des questions</li>
+          <li>Analyse des réponses</li>
+          <li>Restitution (synthèse / rapport)</li>
+        </ul>
+        <p class="muted small"><strong>Compétences :</strong> C2 Analyser, C3 Valoriser.</p>
+      `
+    },
+
+    "sondage": {
       title: "Estimation par sondage (R)",
       body: `
-        <p><strong>Objectif :</strong> comprendre la fiabilité des sondages via simulation et intervalles de confiance.</p>
+        <p class="muted"><strong>Mini présentation :</strong> Simulation pour comprendre la précision d’un sondage (estimation + intervalle de confiance).</p>
+        <div class="divider"></div>
+        <p><strong>Objectif :</strong> comparer la précision selon la taille d’échantillon.</p>
         <ul>
-          <li>Fonctions R pour tirages aléatoires et estimations</li>
-          <li>Calcul d’estimations ponctuelles + intervalles de confiance</li>
-          <li>Comparaison de précision selon la taille d’échantillon</li>
+          <li>Fonctions R : tirages aléatoires</li>
+          <li>Estimations ponctuelles + IC</li>
+          <li>Comparaison selon n</li>
         </ul>
-        <p class="muted small">Compétences : Analyser (C2), Traiter (C1).</p>
+        <p class="muted small"><strong>Compétences :</strong> C2 Analyser, C1 Traiter.</p>
       `
     },
-    sql: {
-      title: "Projet Base de données (SQL + PostgreSQL + Metabase)",
+
+    "regression": {
+      title: "Régression sur données réelles (SAÉ 2.03)",
       body: `
-        <p><strong>Objectif :</strong> structurer et exploiter des données dans un SGBD relationnel.</p>
+        <p class="muted"><strong>Mini présentation :</strong> Modélisation par régression : estimer des paramètres et vérifier si le modèle est justifié.</p>
+        <div class="divider"></div>
+        <p><strong>Objectif :</strong> construire un modèle interprétable et argumenter son choix.</p>
         <ul>
-          <li>Conception d’un schéma relationnel</li>
-          <li>Création de tables + requêtes (jointures, agrégations)</li>
-          <li>Exploitation et visualisation dans Metabase</li>
-          <li>Commentaires orientés décision</li>
+          <li>Choix du type de modèle</li>
+          <li>Estimation des paramètres (ex : a, b)</li>
+          <li>Interprétation + limites</li>
         </ul>
-        <p class="muted small">Compétences : Traiter (C1), Valoriser (C3).</p>
+        <p class="muted small"><strong>Compétences :</strong> C2 Analyser, C4 Modéliser.</p>
       `
     },
-    excel: {
-      title: "Dashboard Excel (KPI + graphiques dynamiques)",
+
+    "tumeurs": {
+      title: "Classification de tumeurs (Python)",
       body: `
-        <p><strong>Objectif :</strong> créer un reporting clair et directement exploitable.</p>
+        <p class="muted"><strong>Mini présentation :</strong> Première approche de classification sur un dataset médical.</p>
+        <div class="divider"></div>
+        <p><strong>Objectif :</strong> comprendre la logique d’un modèle de classification simple.</p>
         <ul>
-          <li>Tableaux croisés dynamiques (TCD)</li>
-          <li>Graphiques dynamiques + indicateurs clés</li>
-          <li>Mise en forme “lecture rapide”</li>
+          <li>Nettoyage + structuration</li>
+          <li>Choix de variables importantes</li>
+          <li>Régression logistique</li>
+          <li>Interprétation des résultats</li>
         </ul>
-        <p class="muted small">Compétences : Valoriser (C3).</p>
+        <p class="muted small"><strong>Compétences :</strong> C4 Modéliser, C2 Analyser.</p>
+      `
+    },
+
+    "sae201": {
+      title: "SAÉ 2.01 — Commerce des technologies bas carbone (SQL)",
+      body: `
+        <p class="muted"><strong>Mini présentation :</strong> Projet complet de base de données relationnelle (données FMI) + requêtes + visualisations.</p>
+        <div class="divider"></div>
+        <p><strong>Objectif :</strong> modéliser, créer et exploiter une base PostgreSQL à partir de jeux de données réels.</p>
+        <ul>
+          <li>Modèle EA → schéma relationnel</li>
+          <li>Création + peuplement + intégrité</li>
+          <li>Requêtes d’analyse (jointures, agrégats)</li>
+          <li>Dataviz dans Metabase + commentaires</li>
+        </ul>
+        <p class="muted small"><strong>Compétences :</strong> C1 Traiter, C3 Valoriser.</p>
+      `
+    },
+
+    "sae206": {
+      title: "SAÉ 2.06 — CO₂ & véhicules (Analyse + Dataviz)",
+      body: `
+        <p class="muted"><strong>Mini présentation :</strong> Analyse d’un dataset ADEME sur les émissions de CO₂ et la consommation des véhicules.</p>
+        <div class="divider"></div>
+        <p><strong>Objectif :</strong> comprendre l’impact du carburant, de la gamme et du type sur CO₂ et conso.</p>
+        <ul>
+          <li>Nettoyage + structuration des données</li>
+          <li>Stats descriptives + comparaisons</li>
+          <li>Visualisations et interprétation</li>
+          <li>Rapport + recommandations</li>
+        </ul>
+        <p class="muted small"><strong>Compétences :</strong> C1 Traiter, C2 Analyser, C3 Valoriser.</p>
+      `
+    },
+
+    "sae205": {
+      title: "SAÉ 2.05 — Indicateurs de performance (Analyse financière)",
+      body: `
+        <p class="muted"><strong>Mini présentation :</strong> Étude d’une entreprise : compte de résultat, SIG, BFR, bilan fonctionnel, ratios.</p>
+        <div class="divider"></div>
+        <p><strong>Objectif :</strong> analyser la performance et la structure financière de l’entreprise.</p>
+        <ul>
+          <li>Analyse du secteur + contexte</li>
+          <li>Compte de résultat, SIG (EBE...)</li>
+          <li>BFR, bilan fonctionnel, ratios</li>
+          <li>Synthèse argumentée</li>
+        </ul>
+        <p class="muted small"><strong>Compétences :</strong> C2 Analyser, C3 Valoriser.</p>
+      `
+    },
+
+    "metabase": {
+      title: "Dataviz Metabase (SQL → Dashboard)",
+      body: `
+        <p class="muted"><strong>Mini présentation :</strong> Création de visualisations à partir de requêtes SQL et restitution “décision”.</p>
+        <div class="divider"></div>
+        <p><strong>Objectif :</strong> transformer une requête en dashboard compréhensible.</p>
+        <ul>
+          <li>Graphiques adaptés (barres, courbes...)</li>
+          <li>Filtres + segmentation</li>
+          <li>Commentaires orientés conclusion</li>
+        </ul>
+        <p class="muted small"><strong>Compétences :</strong> C3 Valoriser, C1 Traiter.</p>
       `
     }
   };
 
   const openModal = (key) => {
-    if (!modal || !modalTitle || !modalBody) return;
+    if (!modal || !modalTitle || !modalBody || !modalFoot) return;
     const data = MODALS[key];
     if (!data) return;
 
     modalTitle.textContent = data.title;
     modalBody.innerHTML = data.body;
+
+    // Reset footer (keeps OK button)
+    modalFoot.querySelectorAll("a[data-modal-link]")?.forEach(a => a.remove());
 
     modal.classList.add("open");
     modal.setAttribute("aria-hidden", "false");
@@ -218,11 +340,53 @@
   modal?.addEventListener("click", (e) => { if (e.target === modal) hideModal(); });
   window.addEventListener("keydown", (e) => { if (e.key === "Escape") hideModal(); });
 
+  // ===== PROJECT FILTERS + SEARCH
+  const filtersWrap = document.getElementById("projectFilters");
+  const searchInput = document.getElementById("projectSearch");
+  const cards = Array.from(document.querySelectorAll("#projectsGrid .pCard"));
+
+  let activeFilter = "all";
+  let searchQuery = "";
+
+  const normalize = (s) =>
+    (s || "").toLowerCase().normalize("NFD").replace(/\p{Diacritic}/gu, "");
+
+  const applyProjectsFilter = () => {
+    const q = normalize(searchQuery);
+
+    cards.forEach(card => {
+      const tags = (card.getAttribute("data-tags") || "").split(/\s+/).filter(Boolean);
+      const hay = normalize(card.getAttribute("data-search") || "") + " " + normalize(card.innerText);
+
+      const passFilter = (activeFilter === "all") || tags.includes(activeFilter);
+      const passSearch = !q || hay.includes(q);
+
+      card.classList.toggle("is-hidden", !(passFilter && passSearch));
+    });
+  };
+
+  filtersWrap?.addEventListener("click", (e) => {
+    const btn = e.target.closest("[data-filter]");
+    if (!btn) return;
+
+    activeFilter = btn.getAttribute("data-filter") || "all";
+
+    filtersWrap.querySelectorAll(".chipFilter").forEach(b => b.classList.remove("is-active"));
+    btn.classList.add("is-active");
+
+    applyProjectsFilter();
+  });
+
+  searchInput?.addEventListener("input", () => {
+    searchQuery = searchInput.value || "";
+    applyProjectsFilter();
+  });
+
   // ===== PARTICLES (soft)
   const canvas = document.getElementById("particles");
   if (canvas) {
     const ctx = canvas.getContext("2d");
-    let w, h, raf;
+    let w, h;
     const dots = [];
     const DOTS = 50;
 
@@ -250,7 +414,6 @@
     const step = () => {
       ctx.clearRect(0,0,w,h);
 
-      // draw dots
       for (const d of dots){
         d.x += d.vx; d.y += d.vy;
         if (d.x < -50) d.x = w + 50;
@@ -264,7 +427,6 @@
         ctx.fill();
       }
 
-      // links
       for (let i=0;i<dots.length;i++){
         for (let j=i+1;j<dots.length;j++){
           const a = dots[i], b = dots[j];
@@ -284,7 +446,7 @@
         }
       }
 
-      raf = requestAnimationFrame(step);
+      requestAnimationFrame(step);
     };
 
     resize();

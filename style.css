@@ -652,8 +652,9 @@ html[data-theme="light"] .toast{ background: rgba(255,255,255,.92); }
   background: rgba(16,20,40,.90);
   box-shadow: var(--shadow);
   backdrop-filter: blur(18px);
-  display:flex;
-  flex-direction:column;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
   max-height: calc(100vh - 128px);
 }
 html[data-theme="light"] .modal__panel{ background: rgba(255,255,255,.92); }
@@ -670,8 +671,9 @@ html[data-theme="light"] .modal__panel{ background: rgba(255,255,255,.92); }
 .modal__body{
   padding: 16px 14px;
   color: var(--muted);
-  overflow-y: auto;
-  flex:1;
+  overflow-y: scroll;
+  flex: 1;
+  -webkit-overflow-scrolling: touch;
 }
 .modal__body ul{ margin: 10px 0 0; padding-left: 18px; }
 .modal__body li{ margin: 8px 0; }

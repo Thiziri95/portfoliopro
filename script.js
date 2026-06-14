@@ -319,6 +319,31 @@
     modal.classList.add("open");
     modal.setAttribute("aria-hidden", "false");
     document.body.style.overflow = "hidden";
+
+    // Indicateur de scroll
+    const existingHint = modal.querySelector(".modal__scroll-hint");
+    if (existingHint) existingHint.remove();
+
+    window.setTimeout(() => {
+      const body = document.getElementById("modalBody");
+      if (!body) return;
+      const hasScroll = body.scrollHeight > body.clientHeight + 20;
+      if (!hasScroll) return;
+
+      const hint = document.createElement("div");
+      hint.className = "modal__scroll-hint";
+      hint.textContent = "↓ Défiler pour voir la suite";
+      modal.querySelector(".modal__panel").style.position = "relative";
+      modal.querySelector(".modal__panel").appendChild(hint);
+
+      body.addEventListener("scroll", function onScroll() {
+        const atBottom = body.scrollTop + body.clientHeight >= body.scrollHeight - 20;
+        if (atBottom) {
+          hint.classList.add("hidden");
+          body.removeEventListener("scroll", onScroll);
+        }
+      });
+    }, 100);
   };
 
   const hideModal = () => {

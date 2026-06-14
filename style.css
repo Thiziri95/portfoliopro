@@ -675,6 +675,26 @@ html[data-theme="light"] .modal__panel{ background: rgba(255,255,255,.92); }
   flex: 1;
   -webkit-overflow-scrolling: touch;
 }
+.modal__scroll-hint{
+  position: absolute;
+  bottom: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, rgba(124,235,255,.20), rgba(167,139,250,.18));
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: .82rem;
+  font-weight: 800;
+  color: var(--text);
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 300ms ease;
+  white-space: nowrap;
+}
+.modal__scroll-hint.hidden{
+  opacity: 0;
+}
 .modal__body ul{ margin: 10px 0 0; padding-left: 18px; }
 .modal__body li{ margin: 8px 0; }
 .modal__foot{

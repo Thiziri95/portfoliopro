@@ -138,7 +138,6 @@
   const modalTitle = document.getElementById("modalTitle");
   const modalBody = document.getElementById("modalBody");
 
-  // ⚠️ IMPORTANT : clés = data-modal dans ton HTML
   const MODALS = {
     tumeurs: {
       title: "Prédire un diagnostic (dataset médical) — Python",
@@ -156,15 +155,15 @@
     },
 
     sondage: {
-      title: "Fiabilité d’un sondage — R (simulation)",
+      title: "Fiabilité d'un sondage — R (simulation)",
       body: `
-        <p><strong>Objectif :</strong> Étudier la fiabilité d’un sondage via simulation et intervalles de confiance.</p>
+        <p><strong>Objectif :</strong> Étudier la fiabilité d'un sondage via simulation et intervalles de confiance.</p>
         <div class="divider"></div>
         <ul>
-          <li>Simulation d’une population d’individus</li>
-          <li>Fonctions R : tirage d’échantillons, estimation ponctuelle</li>
-          <li>Construction d’<strong>intervalles de confiance</strong></li>
-          <li>Comparaison de la précision selon la taille d’échantillon</li>
+          <li>Simulation d'une population d'individus</li>
+          <li>Fonctions R : tirage d'échantillons, estimation ponctuelle</li>
+          <li>Construction d'<strong>intervalles de confiance</strong></li>
+          <li>Comparaison de la précision selon la taille d'échantillon</li>
         </ul>
         <p class="muted small"><strong>Compétences :</strong> C1 Traiter • C2 Analyser.</p>
       `
@@ -180,7 +179,7 @@
           <li>Conception du <strong>modèle EA</strong> (entités, associations, cardinalités)</li>
           <li>Passage au <strong>schéma relationnel</strong> (clés, contraintes, normalisation)</li>
           <li>Création des tables en <strong>PostgreSQL</strong> + script de peuplement en SQL</li>
-          <li>Requêtes d’analyse : jointures, agrégations, indicateurs</li>
+          <li>Requêtes d'analyse : jointures, agrégations, indicateurs</li>
           <li>Dataviz (ex : Metabase) + commentaires structurés</li>
         </ul>
         <p class="muted small"><strong>Compétences :</strong> C1 Traiter • C3 Valoriser.</p>
@@ -190,28 +189,36 @@
     excel: {
       title: "Dashboard de pilotage — Excel",
       body: `
-        <p><strong>Objectif :</strong> Construire un tableau de bord clair et interactif pour suivre des KPI.</p>
+        <p><strong>Objectif :</strong> Construire un tableau de bord clair et interactif pour suivre des KPI sur les données étudiantes de l'IUT.</p>
         <div class="divider"></div>
         <ul>
-          <li>Structuration des données + définition des KPI</li>
+          <li>Structuration des données + définition des KPI (1632 étudiants, 6 départements, 55 formations)</li>
           <li><strong>TCD</strong>, segments, calculs, graphiques dynamiques</li>
-          <li>Mise en forme orientée “lecture rapide”</li>
-          <li>Résultat : un dashboard exploitable pour analyser et comparer</li>
+          <li>Analyses : répartition par sexe, mentions de bac, lycées de provenance, boursiers, types de bac par formation</li>
+          <li>Filtres interactifs : Formation, Département, Lycée, Type de bac, Mention</li>
+          <li>Mise en forme orientée "lecture rapide"</li>
         </ul>
-        <p class="muted small"><strong>Compétences :</strong> C3 Valoriser.</p>
+        <div class="divider"></div>
+        <p><strong>Aperçu du dashboard :</strong></p>
+        <img
+          src="dashboard-excel.png"
+          alt="Tableau de bord Excel - Données étudiantes IUT"
+          style="width:100%; border-radius:12px; border:1px solid var(--border); margin-top:8px;"
+        />
+        <p class="muted small" style="margin-top:10px;"><strong>Compétences :</strong> C3 Valoriser.</p>
       `
     },
 
     iofiles: {
-      title: "Automatiser l’extraction de données — Python (fichiers → CSV)",
+      title: "Automatiser l'extraction de données — Python (fichiers → CSV)",
       body: `
         <p><strong>Objectif :</strong> Transformer des données brutes issues de fichiers texte/CSV en données propres et exploitables.</p>
         <div class="divider"></div>
         <ul>
           <li>Lecture automatique de fichiers</li>
-          <li>Extraction d’informations via <strong>regex</strong> (expressions régulières)</li>
+          <li>Extraction d'informations via <strong>regex</strong> (expressions régulières)</li>
           <li>Nettoyage / normalisation des champs</li>
-          <li>Génération d’un tableau récapitulatif au format <strong>CSV</strong></li>
+          <li>Génération d'un tableau récapitulatif au format <strong>CSV</strong></li>
         </ul>
         <p class="muted small"><strong>Compétences :</strong> C1 Traiter.</p>
       `
@@ -220,13 +227,13 @@
     co2: {
       title: "CO₂ & consommation des véhicules — Analyse de A à Z",
       body: `
-        <p><strong>Objectif :</strong> Analyser l’impact du carburant, du type de véhicule et d’autres caractéristiques sur les émissions et la consommation.</p>
+        <p><strong>Objectif :</strong> Analyser l'impact du carburant, du type de véhicule et d'autres caractéristiques sur les émissions et la consommation.</p>
         <div class="divider"></div>
         <ul>
           <li>Nettoyage + structuration (qualité, valeurs manquantes, cohérence)</li>
           <li>Analyses descriptives et comparatives (carburant, type, gamme…)</li>
           <li>Visualisations (ex : boxplots) + interprétation</li>
-          <li>Compte rendu structuré + recommandations (approche “client”)</li>
+          <li>Compte rendu structuré + recommandations (approche "client")</li>
         </ul>
         <p class="muted small"><strong>Compétences :</strong> C1 Traiter • C2 Analyser • C3 Valoriser.</p>
       `
@@ -241,7 +248,7 @@
           <li>Choix des variables et préparation des données</li>
           <li>Construction du modèle (régression) + justification</li>
           <li>Interprétation des coefficients et sens du modèle</li>
-          <li>Analyse critique : cohérence, limites, pistes d’amélioration</li>
+          <li>Analyse critique : cohérence, limites, pistes d'amélioration</li>
         </ul>
         <p class="muted small"><strong>Compétences :</strong> C2 Analyser • C4 Modéliser.</p>
       `
@@ -250,10 +257,10 @@
     performance: {
       title: "Indicateurs de performance — SIG, ratios, synthèse",
       body: `
-        <p><strong>Objectif :</strong> Analyser la performance d’une entreprise via indicateurs, puis restituer une synthèse exploitable.</p>
+        <p><strong>Objectif :</strong> Analyser la performance d'une entreprise via indicateurs, puis restituer une synthèse exploitable.</p>
         <div class="divider"></div>
         <ul>
-          <li>Analyse d’indicateurs (SIG, ratios, éléments financiers)</li>
+          <li>Analyse d'indicateurs (SIG, ratios, éléments financiers)</li>
           <li>Interprétation : ce que racontent les chiffres</li>
           <li>Points forts / points de vigilance</li>
           <li>Restitution structurée (diagnostic + conclusion)</li>
@@ -268,7 +275,7 @@
         <p><strong>Objectif :</strong> Mener une enquête de bout en bout : conception → collecte → analyse → restitution.</p>
         <div class="divider"></div>
         <ul>
-          <li>Conception d’un questionnaire (objectifs, logique, formulation)</li>
+          <li>Conception d'un questionnaire (objectifs, logique, formulation)</li>
           <li>Collecte des réponses + mise au propre</li>
           <li>Analyse des résultats et interprétation</li>
           <li>Valorisation : conclusions claires et structurées</li>
@@ -283,7 +290,7 @@
         <p><strong>Objectif :</strong> Réaliser une analyse complète : cadrage, nettoyage, analyse, visualisation et synthèse.</p>
         <div class="divider"></div>
         <ul>
-          <li>Définition du cadre d’étude et formulation des questions</li>
+          <li>Définition du cadre d'étude et formulation des questions</li>
           <li>Recherche + nettoyage de données publiques</li>
           <li>Analyse statistique descriptive</li>
           <li>Dataviz + rapport de synthèse structuré</li>
@@ -302,8 +309,7 @@
     if (!data) {
       modalTitle.textContent = "Détails du projet";
       modalBody.innerHTML = `
-        <p class="muted">Ce projet n’a pas encore sa fiche détaillée.</p>
-        <p>Dis-moi ce que tu veux mettre dedans et je te le rédige proprement.</p>
+        <p class="muted">Ce projet n'a pas encore sa fiche détaillée.</p>
       `;
     } else {
       modalTitle.textContent = data.title;
@@ -322,7 +328,6 @@
     document.body.style.overflow = "";
   };
 
-  // ✅ Délégation => fonctionne pour toutes les cartes (même si tu modifies le HTML)
   document.addEventListener("click", (e) => {
     const btn = e.target.closest("[data-modal]");
     if (!btn) return;
@@ -335,7 +340,7 @@
   modal?.addEventListener("click", (e) => { if (e.target === modal) hideModal(); });
   window.addEventListener("keydown", (e) => { if (e.key === "Escape") hideModal(); });
 
-  // ===== PROJECTS FILTER + SEARCH (version qui match ton HTML)
+  // ===== PROJECTS FILTER + SEARCH
   const projectsGrid = document.getElementById("projectsGrid");
   const cards = Array.from(document.querySelectorAll("#projectsGrid .pCard"));
   const searchInput = document.getElementById("projectSearch");
@@ -411,7 +416,6 @@
     searchInput.focus();
   });
 
-  // First render
   applyProjectsFilter();
 
   // ===== PARTICLES (soft)

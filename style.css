@@ -652,7 +652,6 @@ html[data-theme="light"] .toast{ background: rgba(255,255,255,.92); }
   background: rgba(16,20,40,.90);
   box-shadow: var(--shadow);
   backdrop-filter: blur(18px);
-  overflow:hidden;
   display:flex;
   flex-direction:column;
   max-height: calc(100vh - 128px);

@@ -201,7 +201,7 @@
         <div class="divider"></div>
         <p><strong>Aperçu du dashboard :</strong></p>
         <img
-          src="dashboard-excel.jpeg"
+          src="https://raw.githubusercontent.com/Thiziri95/portfoliopro/main/dashboard-excel.jpeg"
           alt="Tableau de bord Excel - Données étudiantes IUT"
           style="width:100%; border-radius:12px; border:1px solid var(--border); margin-top:8px;"
         />

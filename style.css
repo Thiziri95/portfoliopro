@@ -466,7 +466,7 @@ html[data-theme="light"] .bar{ background: rgba(10,15,30,.06); }
 html[data-theme="light"] .pTags span{ background: rgba(10,15,30,.05); }
 
 /* =========================
-   PROJECTS: SEARCH + FILTERS (MATCH HTML)
+   PROJECTS: SEARCH + FILTERS
    ========================= */
 .projectsTools{
   display:flex;
@@ -653,6 +653,9 @@ html[data-theme="light"] .toast{ background: rgba(255,255,255,.92); }
   box-shadow: var(--shadow);
   backdrop-filter: blur(18px);
   overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  max-height: calc(100vh - 128px);
 }
 html[data-theme="light"] .modal__panel{ background: rgba(255,255,255,.92); }
 .modal__head{
@@ -662,11 +665,14 @@ html[data-theme="light"] .modal__panel{ background: rgba(255,255,255,.92); }
   justify-content:space-between;
   align-items:center;
   gap: 10px;
+  flex-shrink:0;
 }
 .modal__title{ font-weight:900; }
 .modal__body{
   padding: 16px 14px;
   color: var(--muted);
+  overflow-y: auto;
+  flex:1;
 }
 .modal__body ul{ margin: 10px 0 0; padding-left: 18px; }
 .modal__body li{ margin: 8px 0; }
@@ -677,6 +683,7 @@ html[data-theme="light"] .modal__panel{ background: rgba(255,255,255,.92); }
   justify-content:flex-end;
   gap:10px;
   flex-wrap:wrap;
+  flex-shrink:0;
 }
 
 /* Reveal */
@@ -704,6 +711,7 @@ html[data-theme="light"] .modal__panel{ background: rgba(255,255,255,.92); }
   .projectsGrid{ grid-template-columns: 1fr; }
   .searchBox{ min-width: 100%; }
 }
+
 /* =========================
    QUALITIES (Mes qualités)
    ========================= */

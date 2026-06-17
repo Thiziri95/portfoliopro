@@ -761,3 +761,110 @@ html[data-theme="light"] .q{
 .q__d{
   color: var(--muted);
 }
+
+
+/* =========================
+   QUALITÉS (CARTES AU SURVOL)
+   ========================= */
+.qualities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.q-hover-card {
+  position: relative;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  background: var(--panel2);
+  height: 280px; /* Fixe la hauteur pour avoir des cartes uniformes */
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform var(--speed), box-shadow var(--speed), border-color var(--speed);
+}
+
+.q-hover-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow2);
+  border-color: var(--c2); /* Petite touche colorée au survol */
+}
+
+/* L'avant de la carte (Icône + Titre) */
+.q-front {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 300ms ease, transform 300ms ease;
+  padding: 20px;
+}
+
+.q-icon {
+  font-size: 3.5rem;
+  margin-bottom: 12px;
+  filter: drop-shadow(0 4px 12px rgba(167,139,250,0.3));
+}
+
+.q-title {
+  font-weight: 900;
+  font-size: 1.15rem;
+  text-align: center;
+  color: var(--text);
+}
+
+/* L'arrière de la carte (Texte) */
+.q-back {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  background: rgba(10, 15, 30, 0.96); /* Fond sombre qui masque l'icône */
+  backdrop-filter: blur(8px);
+  padding: 16px;
+  transition: opacity 300ms ease;
+  pointer-events: none; /* Empêche les clics si ce n'est pas affiché */
+  display: flex;
+  flex-direction: column;
+}
+
+html[data-theme="light"] .q-back {
+  background: rgba(250, 251, 255, 0.96);
+}
+
+/* Animations au survol de la carte entière */
+.q-hover-card:hover .q-front {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+.q-hover-card:hover .q-back {
+  opacity: 1;
+  pointer-events: auto; 
+}
+
+/* Zone de texte scrollable pour les longs textes */
+.q-back-scroll {
+  overflow-y: auto;
+  height: 100%;
+  font-size: 0.88rem;
+  color: var(--muted);
+  padding-right: 8px;
+  text-align: justify;
+}
+
+/* Design de la petite barre de défilement (scroll) interne */
+.q-back-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+.q-back-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.q-back-scroll::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+.q-hover-card:hover .q-back-scroll::-webkit-scrollbar-thumb {
+  background: var(--muted2);
+}

@@ -139,21 +139,182 @@
   const modalBody = document.getElementById("modalBody");
 
   const MODALS = {
-    tumeurs: {
-      title: "Prédire un diagnostic (dataset médical) — Python",
+    bascarbone: {
+      title: "Conception Base de données (FMI) — SQL",
       body: `
-        <p><strong>Objectif :</strong> Construire une première approche de classification sur un dataset médical réel (tumeurs du sein).</p>
+        <h4 style="color:var(--text); margin-bottom:8px;">Contexte</h4>
+        <p>Dans cette SAÉ, nous devions travailler à partir de données du FMI sur le commerce des technologies à faible empreinte carbone. L’objectif était de créer une base de données relationnelle complète : modélisation entité-association, transformation en schéma relationnel, création des tables en SQL, insertion des données, puis exploitation avec des requêtes et des visualisations sur Metabase.</p>
         <div class="divider"></div>
-        <ul>
-          <li>Préparation du dataset (nettoyage, structuration, cohérence)</li>
-          <li>Analyse des variables et identification des plus discriminantes</li>
-          <li>Modélisation par <strong>régression logistique</strong> (classification)</li>
-          <li>Interprétation des résultats et limites (rigueur + logique)</li>
-        </ul>
-        <p class="muted small"><strong>Compétences :</strong> C2 Analyser • C4 Modéliser.</p>
+        <h4 style="color:var(--c1); margin-bottom:8px;">Points positifs</h4>
+        <p>Cette SAÉ m’a permis de vraiment comprendre la logique d’une base de données. Avant, je savais écrire des requêtes simples, mais je ne comprenais pas toujours la structure globale. Ici, j’ai appris à réfléchir en termes de relations entre tables et de cohérence des données. J’ai aussi progressé en SQL (jointures complexes, nettoyage de données, indicateurs de flux commerciaux).</p>
+        <div class="divider"></div>
+        <h4 style="color:var(--c3); margin-bottom:8px;">Difficultés rencontrées</h4>
+        <p>Au début, j’avais du mal à bien structurer le modèle entité-association. Certaines relations n’étaient pas claires et mes premières requêtes étaient longues et peu efficaces.</p>
+        <div class="divider"></div>
+        <h4 style="color:var(--c2); margin-bottom:8px;">Ce que j'ai réussi à rattraper</h4>
+        <p>J’ai pris le temps de revoir la modélisation et de tester mes requêtes étape par étape. En simplifiant et en organisant mieux mon code, j’ai réussi à rendre mon travail plus propre et plus logique. Cette expérience m’a rendue plus rigoureuse.</p>
       `
     },
-
+    co2: {
+      title: "Analyse environnementale (CO₂) — Statistiques",
+      body: `
+        <h4 style="color:var(--text); margin-bottom:8px;">Contexte</h4>
+        <p>Cette SAÉ portait sur l’analyse de données réelles concernant les émissions de CO₂ des véhicules. Nous devions nettoyer les données, réaliser une analyse statistique descriptive, produire des graphiques pertinents et rédiger un rapport clair.</p>
+        <div class="divider"></div>
+        <h4 style="color:var(--c1); margin-bottom:8px;">Points positifs</h4>
+        <p>J’ai réussi à structurer mon travail du début à la fin : nettoyage des données, analyse, visualisation et interprétation. J’ai compris que l’objectif n’était pas seulement de produire des graphiques, mais d’expliquer ce qu’ils signifient. J'ai aussi progressé en travail de groupe.</p>
+        <div class="divider"></div>
+        <h4 style="color:var(--c3); margin-bottom:8px;">Difficultés rencontrées</h4>
+        <p>Au départ, je me concentrais surtout sur les calculs et les graphiques, sans aller assez loin dans l’interprétation. J’avais parfois du mal à formuler des conclusions claires.</p>
+        <div class="divider"></div>
+        <h4 style="color:var(--c2); margin-bottom:8px;">Ce que j'ai réussi à rattraper</h4>
+        <p>En retravaillant mes analyses et en prenant du recul, j’ai appris à relier les résultats aux enjeux environnementaux. J’ai aussi amélioré ma façon de rédiger pour que mes conclusions soient plus compréhensibles.</p>
+      `
+    },
+    tumeurs: {
+      title: "Prédiction de tumeur (Régression Logistique) — Python",
+      body: `
+        <h4 style="color:var(--text); margin-bottom:8px;">Contexte</h4>
+        <p>Le but de cette SAÉ était d’utiliser un jeu de données médical pour construire un modèle de régression logistique capable de prédire si une tumeur est bénigne ou maligne.</p>
+        <div class="divider"></div>
+        <h4 style="color:var(--c1); margin-bottom:8px;">Points positifs</h4>
+        <p>Cette SAÉ m’a permis de mieux comprendre comment fonctionne un modèle prédictif. J’ai appris à analyser les variables, à repérer celles qui étaient les plus importantes et à interpréter les résultats. J’ai développé un esprit plus critique : j’ai compris qu’un modèle ne donne pas “la vérité”, mais une estimation qu’il faut savoir analyser.</p>
+        <div class="divider"></div>
+        <h4 style="color:var(--c3); margin-bottom:8px;">Difficultés rencontrées</h4>
+        <p>La partie théorique était difficile au début, notamment la compréhension des coefficients et de la probabilité associée à la régression logistique.</p>
+        <div class="divider"></div>
+        <h4 style="color:var(--c2); margin-bottom:8px;">Ce que j'ai réussi à rattraper</h4>
+        <p>J’ai revu les bases et relu mes cours pour mieux comprendre la logique mathématique. Cela m’a permis d’expliquer le modèle avec plus d’assurance et de ne plus l’utiliser de manière automatique.</p>
+      `
+    },
+    ia: {
+      title: "Recueil et analyse de données (Usage de l'IA) — R",
+      body: `
+        <h4 style="color:var(--text); margin-bottom:8px;">Contexte</h4>
+        <p>Cette SAÉ portait sur une enquête concernant l’usage de l’intelligence artificielle chez les étudiants. Nous avons construit le questionnaire, collecté plus de 1000 réponses, puis analysé les données sous R.</p>
+        <div class="divider"></div>
+        <h4 style="color:var(--c1); margin-bottom:8px;">Points positifs</h4>
+        <p>J’ai particulièrement progressé dans l’analyse de la représentativité de l’échantillon. J’ai compris qu’un résultat peut être biaisé si l’échantillon n’est pas équilibré. Cette SAÉ m’a permis de renforcer mon esprit critique face aux données.</p>
+        <div class="divider"></div>
+        <h4 style="color:var(--c3); margin-bottom:8px;">Difficultés rencontrées</h4>
+        <p>Le redressement statistique et l’interprétation des intervalles de confiance étaient complexes au départ.</p>
+        <div class="divider"></div>
+        <h4 style="color:var(--c2); margin-bottom:8px;">Ce que j'ai réussi à rattraper</h4>
+        <p>En appliquant concrètement les notions sur nos données réelles, j’ai mieux compris leur utilité et leur logique. Cela m’a permis d’être plus rigoureuse dans mes analyses.</p>
+      `
+    },
+    performance: {
+      title: "Évaluation performance d'entreprise — Analyse financière",
+      body: `
+        <h4 style="color:var(--text); margin-bottom:8px;">Contexte</h4>
+        <p>Cette SAÉ consistait à analyser la performance d’une entreprise bio locale à partir de ses documents comptables et de son environnement économique.</p>
+        <div class="divider"></div>
+        <h4 style="color:var(--c1); margin-bottom:8px;">Points positifs</h4>
+        <p>J’ai appris à lire un compte de résultat et à calculer des indicateurs comme la marge ou l’autonomie financière. J’ai compris comment relier des chiffres à une situation réelle d’entreprise. Cette SAÉ m’a également permis de développer ma capacité à rédiger une synthèse claire et argumentée.</p>
+        <div class="divider"></div>
+        <h4 style="color:var(--c3); margin-bottom:8px;">Difficultés rencontrées</h4>
+        <p>Au début, certains indicateurs financiers étaient difficiles à interpréter et je manquais de recul pour analyser la situation globale.</p>
+        <div class="divider"></div>
+        <h4 style="color:var(--c2); margin-bottom:8px;">Ce que j'ai réussi à rattraper</h4>
+        <p>En approfondissant les notions et en prenant le temps de relire mes analyses, j’ai réussi à produire un diagnostic plus cohérent et structuré.</p>
+      `
+    },
+    excel: {
+      title: "Tableau de bord (Service Com IUT) — Excel",
+      body: `
+        <h4 style="color:var(--text); margin-bottom:8px;">Contexte</h4>
+        <p>Nous devions créer un tableau de bord pour le service communication de l’IUT afin d’analyser le profil des étudiants à partir d’un fichier Excel. L’objectif était de transformer un simple tableau de données en un outil clair, interactif et utile pour la décision.</p>
+        <div class="divider"></div>
+        <h4 style="color:var(--c1); margin-bottom:8px;">Points positifs</h4>
+        <p>J’ai appris à utiliser les tableaux croisés dynamiques, les segments et les graphiques interactifs. J’ai aussi compris l’importance de l’ergonomie : un bon tableau de bord doit être simple et compréhensible pour quelqu’un qui ne travaille pas dans la data.</p>
+        <div class="divider"></div>
+        <h4 style="color:var(--c3); margin-bottom:8px;">Difficultés rencontrées</h4>
+        <p>Au début, mes tableaux étaient trop chargés et pas assez synthétiques. J’avais du mal à sélectionner les indicateurs vraiment utiles.</p>
+        <div class="divider"></div>
+        <h4 style="color:var(--c2); margin-bottom:8px;">Ce que j'ai réussi à rattraper</h4>
+        <p>En retravaillant la mise en forme et en simplifiant les informations affichées, j’ai réussi à produire un tableau de bord plus professionnel et plus efficace.</p>
+      `
+    },
+    enquete: {
+      title: "Enquête alimentaire — Questionnaire Sphinx",
+      body: `
+        <h4 style="color:var(--text); margin-bottom:8px;">Contexte</h4>
+        <p>Concevoir et administrer une enquête sur les habitudes alimentaires des étudiants de l’université. Nous devions construire le questionnaire, collecter les réponses, analyser les données et présenter les résultats.</p>
+        <div class="divider"></div>
+        <h4 style="color:var(--c1); margin-bottom:8px;">Points positifs</h4>
+        <p>J’ai appris à construire un questionnaire logique. J’ai aussi développé mes compétences en analyse descriptive (tris à plat, tris croisés). Travailler sur de vraies données terrain rendait l'analyse très concrète.</p>
+        <div class="divider"></div>
+        <h4 style="color:var(--c3); margin-bottom:8px;">Difficultés rencontrées</h4>
+        <p>Certaines questions auraient pu être formulées plus clairement. Nous avons aussi rencontré quelques incohérences dans les réponses collectées.</p>
+        <div class="divider"></div>
+        <h4 style="color:var(--c2); margin-bottom:8px;">Ce que j'ai réussi à rattraper</h4>
+        <p>Nous avons retravaillé certaines catégories lors du nettoyage des données pour rendre l’analyse plus cohérente. Cela m’a appris l’importance de la précision dès la phase de conception.</p>
+      `
+    },
+    iofiles: {
+      title: "Automatisation traitement fichiers — Python",
+      body: `
+        <h4 style="color:var(--text); margin-bottom:8px;">Contexte</h4>
+        <p>L’objectif était de lire automatiquement plusieurs fichiers clients bruts, extraire les informations utiles, nettoyer les données et générer un fichier CSV structuré.</p>
+        <div class="divider"></div>
+        <h4 style="color:var(--c1); margin-bottom:8px;">Points positifs</h4>
+        <p>J’ai progressé en programmation Python (lecture/écriture de fichiers). J’ai appris à automatiser un traitement qui aurait été très long manuellement. J’ai développé ma logique algorithmique pour structurer un script propre.</p>
+        <div class="divider"></div>
+        <h4 style="color:var(--c3); margin-bottom:8px;">Difficultés rencontrées</h4>
+        <p>Les fichiers avaient des formats différents et certaines données étaient incomplètes. La gestion des erreurs dans le code m’a posé des difficultés au début.</p>
+        <div class="divider"></div>
+        <h4 style="color:var(--c2); margin-bottom:8px;">Ce que j'ai réussi à rattraper</h4>
+        <p>En ajoutant des conditions et en testant plusieurs cas, j’ai réussi à rendre mon script plus robuste et plus fiable, produisant un résultat propre et réutilisable.</p>
+      `
+    },
+    metabase: {
+      title: "Reporting catastrophes climatiques — SQL & Metabase",
+      body: `
+        <h4 style="color:var(--text); margin-bottom:8px;">Contexte</h4>
+        <p>Nous devions mettre en place un environnement PostgreSQL, intégrer un jeu de données mondial sur les catastrophes climatiques et produire des analyses via SQL et Metabase.</p>
+        <div class="divider"></div>
+        <h4 style="color:var(--c1); margin-bottom:8px;">Points positifs</h4>
+        <p>J’ai appris à travailler dans un environnement complet de base de données. J’ai amélioré ma maîtrise de SQL et compris comment produire des indicateurs pertinents. Relier la technique à un enjeu mondial concret était très motivant.</p>
+        <div class="divider"></div>
+        <h4 style="color:var(--c3); margin-bottom:8px;">Difficultés rencontrées</h4>
+        <p>La mise en place de l’environnement technique et certaines jointures SQL complexes ont été difficiles au début.</p>
+        <div class="divider"></div>
+        <h4 style="color:var(--c2); margin-bottom:8px;">Ce que j'ai réussi à rattraper</h4>
+        <p>En pratiquant davantage et en testant les requêtes progressivement, j’ai gagné en autonomie et en confiance dans l’utilisation de SQL.</p>
+      `
+    },
+    series: {
+      title: "Séries chronologiques (Tourisme) — Modélisation",
+      body: `
+        <h4 style="color:var(--text); margin-bottom:8px;">Contexte</h4>
+        <p>L’objectif de cette SAÉ était d’analyser une série mensuelle sur les nuitées touristiques en France et de construire des prévisions à l’aide de différentes méthodes (moyenne mobile, lissage exponentiel, ARIMA).</p>
+        <div class="divider"></div>
+        <h4 style="color:var(--c1); margin-bottom:8px;">Points positifs</h4>
+        <p>J’ai appris à identifier la tendance et la saisonnalité d’une série temporelle, et à comparer différentes méthodes de prévision. Ça m'a aidé à comprendre comment un phénomène évolue dans le temps.</p>
+        <div class="divider"></div>
+        <h4 style="color:var(--c3); margin-bottom:8px;">Difficultés rencontrées</h4>
+        <p>Les notions mathématiques comme la stationnarité, les graphes ACF/PACF et le choix des paramètres ARIMA étaient très abstraites au début.</p>
+        <div class="divider"></div>
+        <h4 style="color:var(--c2); margin-bottom:8px;">Ce que j'ai réussi à rattraper</h4>
+        <p>En pratiquant directement sur les données et en comparant les modèles visuellement, j’ai progressivement compris la logique derrière ces outils et gagné en confiance.</p>
+      `
+    },
+    gym: {
+      title: "Analyse et Investigation d'un Dataset (Gym) — Python",
+      body: `
+        <h4 style="color:var(--text); margin-bottom:8px;">Contexte</h4>
+        <p>Ce très gros projet portait sur un dataset issu de Kaggle censé recenser les membres d'une salle de gym (variables morphologiques, physiologiques, entraînement). En Phase 1, on a fait une exploration normale (statistiques, corrélations, clustering CAH) pour trouver des profils. En Phase 2, trouvant les données "trop parfaites", nous avons mené une véritable enquête pour prouver que les données étaient fausses et générées par un ordinateur.</p>
+        <div class="divider"></div>
+        <h4 style="color:var(--c1); margin-bottom:8px;">Points positifs</h4>
+        <p>J'ai adoré cette démarche d'investigation ! J'ai utilisé des tests statistiques complexes (Kolmogorov-Smirnov, Chi², loi Uniforme, loi Normale) pour traquer les incohérences. Le clou du spectacle a été de prouver qu'un modèle de régression linéaire prédisait les calories brûlées à 93.8% (ce qui est biologiquement impossible). J'ai aussi utilisé une Analyse en Composantes Principales (ACP) pour dévoiler la structure cachée du faux dataset.</p>
+        <div class="divider"></div>
+        <h4 style="color:var(--c3); margin-bottom:8px;">Difficultés rencontrées</h4>
+        <p>Au tout début (Phase 1), je pensais vraiment que les données étaient réelles car les distributions semblaient logiques. Ensuite, comprendre et interpréter correctement les résidus de la régression linéaire et le plan factoriel de l'ACP a demandé beaucoup de réflexion.</p>
+        <div class="divider"></div>
+        <h4 style="color:var(--c2); margin-bottom:8px;">Ce que j'ai réussi à rattraper</h4>
+        <p>En prenant du recul et en segmentant les données par sous-groupes (ex: séparer le % de masse grasse par genre ET niveau d'expérience simultanément), j'ai pu démontrer de manière irréfutable la "recette" mathématique qui avait servi à créer les données de toutes pièces. Cette SAÉ a définitivement forgé mon esprit critique de Data Analyst.</p>
+      `
+    },
     sondage: {
       title: "Fiabilité d'un sondage — R (simulation)",
       body: `
@@ -168,122 +329,6 @@
         <p class="muted small"><strong>Compétences :</strong> C1 Traiter • C2 Analyser.</p>
       `
     },
-
-    bascarbone: {
-      title: "Commerce des technologies bas carbone — Projet SQL complet",
-      body: `
-        <p><strong>Objectif :</strong> Réaliser un projet base de données complet : modélisation → création/peuplement → requêtes → visualisation.</p>
-        <div class="divider"></div>
-        <ul>
-          <li>Analyse du besoin + compréhension des datasets (Trade / Bilateral)</li>
-          <li>Conception du <strong>modèle EA</strong> (entités, associations, cardinalités)</li>
-          <li>Passage au <strong>schéma relationnel</strong> (clés, contraintes, normalisation)</li>
-          <li>Création des tables en <strong>PostgreSQL</strong> + script de peuplement en SQL</li>
-          <li>Requêtes d'analyse : jointures, agrégations, indicateurs</li>
-          <li>Dataviz (ex : Metabase) + commentaires structurés</li>
-        </ul>
-        <p class="muted small"><strong>Compétences :</strong> C1 Traiter • C3 Valoriser.</p>
-      `
-    },
-
-    excel: {
-      title: "Dashboard de pilotage — Excel",
-      body: `
-        <p><strong>Objectif :</strong> Construire un tableau de bord clair et interactif pour suivre des KPI sur les données étudiantes de l'IUT.</p>
-        <div class="divider"></div>
-        <ul>
-          <li>Structuration des données + définition des KPI (1632 étudiants, 6 départements, 55 formations)</li>
-          <li><strong>TCD</strong>, segments, calculs, graphiques dynamiques</li>
-          <li>Analyses : répartition par sexe, mentions de bac, lycées de provenance, boursiers, types de bac par formation</li>
-          <li>Filtres interactifs : Formation, Département, Lycée, Type de bac, Mention</li>
-          <li>Mise en forme orientée "lecture rapide"</li>
-        </ul>
-        <div class="divider"></div>
-        <p><strong>Aperçu du dashboard :</strong></p>
-        <img
-          src="https://raw.githubusercontent.com/Thiziri95/portfoliopro/main/dashboard-excel.jpeg"
-          alt="Tableau de bord Excel - Données étudiantes IUT"
-          style="width:100%; border-radius:12px; border:1px solid var(--border); margin-top:8px;"
-        />
-        <p class="muted small" style="margin-top:10px;"><strong>Compétences :</strong> C3 Valoriser.</p>
-      `
-    },
-
-    iofiles: {
-      title: "Automatiser l'extraction de données — Python (fichiers → CSV)",
-      body: `
-        <p><strong>Objectif :</strong> Transformer des données brutes issues de fichiers texte/CSV en données propres et exploitables.</p>
-        <div class="divider"></div>
-        <ul>
-          <li>Lecture automatique de fichiers</li>
-          <li>Extraction d'informations via <strong>regex</strong> (expressions régulières)</li>
-          <li>Nettoyage / normalisation des champs</li>
-          <li>Génération d'un tableau récapitulatif au format <strong>CSV</strong></li>
-        </ul>
-        <p class="muted small"><strong>Compétences :</strong> C1 Traiter.</p>
-      `
-    },
-
-    co2: {
-      title: "CO₂ & consommation des véhicules — Analyse de A à Z",
-      body: `
-        <p><strong>Objectif :</strong> Analyser l'impact du carburant, du type de véhicule et d'autres caractéristiques sur les émissions et la consommation.</p>
-        <div class="divider"></div>
-        <ul>
-          <li>Nettoyage + structuration (qualité, valeurs manquantes, cohérence)</li>
-          <li>Analyses descriptives et comparatives (carburant, type, gamme…)</li>
-          <li>Visualisations (ex : boxplots) + interprétation</li>
-          <li>Compte rendu structuré + recommandations (approche "client")</li>
-        </ul>
-        <p class="muted small"><strong>Compétences :</strong> C1 Traiter • C2 Analyser • C3 Valoriser.</p>
-      `
-    },
-
-    regression: {
-      title: "Régression sur données réelles — Statistiques & modélisation",
-      body: `
-        <p><strong>Objectif :</strong> Construire un modèle de régression, le justifier, et interpréter correctement les résultats.</p>
-        <div class="divider"></div>
-        <ul>
-          <li>Choix des variables et préparation des données</li>
-          <li>Construction du modèle (régression) + justification</li>
-          <li>Interprétation des coefficients et sens du modèle</li>
-          <li>Analyse critique : cohérence, limites, pistes d'amélioration</li>
-        </ul>
-        <p class="muted small"><strong>Compétences :</strong> C2 Analyser • C4 Modéliser.</p>
-      `
-    },
-
-    performance: {
-      title: "Indicateurs de performance — SIG, ratios, synthèse",
-      body: `
-        <p><strong>Objectif :</strong> Analyser la performance d'une entreprise via indicateurs, puis restituer une synthèse exploitable.</p>
-        <div class="divider"></div>
-        <ul>
-          <li>Analyse d'indicateurs (SIG, ratios, éléments financiers)</li>
-          <li>Interprétation : ce que racontent les chiffres</li>
-          <li>Points forts / points de vigilance</li>
-          <li>Restitution structurée (diagnostic + conclusion)</li>
-        </ul>
-        <p class="muted small"><strong>Compétences :</strong> C2 Analyser • C3 Valoriser.</p>
-      `
-    },
-
-    enquete: {
-      title: "Enquête alimentaire — Questionnaire, analyse, valorisation",
-      body: `
-        <p><strong>Objectif :</strong> Mener une enquête de bout en bout : conception → collecte → analyse → restitution.</p>
-        <div class="divider"></div>
-        <ul>
-          <li>Conception d'un questionnaire (objectifs, logique, formulation)</li>
-          <li>Collecte des réponses + mise au propre</li>
-          <li>Analyse des résultats et interprétation</li>
-          <li>Valorisation : conclusions claires et structurées</li>
-        </ul>
-        <p class="muted small"><strong>Compétences :</strong> C2 Analyser • C3 Valoriser.</p>
-      `
-    },
-
     dataviz: {
       title: "Analyse & dataviz sur données publiques — de A à Z",
       body: `

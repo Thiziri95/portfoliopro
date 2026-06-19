@@ -185,6 +185,7 @@
         <p>Le but de cette SAÉ était d’utiliser un jeu de données médical pour construire un modèle de régression logistique capable de prédire si une tumeur est bénigne ou maligne.</p>
         
         <img src="régression-logistique.png" alt="Modèle de Régression Logistique" style="width:100%; border-radius:12px; margin:12px 0; border:1px solid var(--border);">
+        <img src="nuage-regression.png" alt="Nuage de régression" style="width:100%; border-radius:12px; margin:12px 0; border:1px solid var(--border);">
 
         <div class="divider"></div>
         <h4 style="color:var(--c1); margin-bottom:8px;">Points positifs</h4>
@@ -338,8 +339,6 @@
         <h4 style="color:var(--c1); margin-bottom:8px;">La Phase 2 : Le déclic et l'investigation</h4>
         <p>J'ai adoré cette démarche d'investigation ! J'ai utilisé des tests statistiques complexes pour traquer les incohérences. Le clou du spectacle a été de prouver qu'un modèle de régression linéaire prédisait les calories brûlées à 93.8% (ce qui est biologiquement impossible). Les données étaient trop propres pour être vraies.</p>
         
-        <img src="nuage-regression.png" alt="Nuage de régression" style="width:100%; border-radius:12px; margin:12px 0; border:1px solid var(--border);">
-
         <p>J'ai aussi utilisé une Analyse en Composantes Principales (ACP) pour dévoiler la structure cachée du faux dataset.</p>
         
         <img src="plan-factoriel.png" alt="Plan factoriel de l'ACP" style="width:100%; border-radius:12px; margin:12px 0; border:1px solid var(--border);">
@@ -347,35 +346,6 @@
         <div class="divider"></div>
         <h4 style="color:var(--c2); margin-bottom:8px;">Conclusion</h4>
         <p>En prenant du recul et en segmentant les données par sous-groupes, j'ai pu démontrer de manière irréfutable la "recette" mathématique qui avait servi à créer les données de toutes pièces. Cette SAÉ a définitivement forgé mon esprit critique de Data Analyst.</p>
-      `
-    },
-    sondage: {
-      title: "Fiabilité d'un sondage — R (simulation)",
-      body: `
-        <p><strong>Objectif :</strong> Étudier la fiabilité d'un sondage via simulation et intervalles de confiance.</p>
-        <div class="divider"></div>
-        <ul>
-          <li>Simulation d'une population d'individus</li>
-          <li>Fonctions R : tirage d'échantillons, estimation ponctuelle</li>
-          <li>Construction d'<strong>intervalles de confiance</strong></li>
-          <li>Comparaison de la précision selon la taille d'échantillon</li>
-        </ul>
-        <p class="muted small"><strong>Compétences :</strong> C1 Traiter • C2 Analyser.</p>
-      `
-    },
-    dataviz: {
-      title: "Analyse & dataviz sur données publiques — de A à Z",
-      body: `
-        <p><strong>Objectif :</strong> Réaliser une analyse complète : cadrage, nettoyage, analyse, visualisation et synthèse.</p>
-        <div class="divider"></div>
-        <ul>
-          <li>Définition du cadre d'étude et formulation des questions</li>
-          <li>Recherche + nettoyage de données publiques</li>
-          <li>Analyse statistique descriptive</li>
-          <li>Dataviz + rapport de synthèse structuré</li>
-          <li>Organisation du projet (tâches, étapes, méthode)</li>
-        </ul>
-        <p class="muted small"><strong>Compétences :</strong> C1 Traiter • C2 Analyser • C3 Valoriser.</p>
       `
     }
   };

@@ -202,7 +202,7 @@
       title: "Recueil et analyse de données (Usage de l'IA) — R",
       body: `
         <h4 style="color:var(--text); margin-bottom:8px;">Contexte</h4>
-        <p>Cette SAÉ portait sur une enquête concernant l’usage de l’intelligence artificielle chez les étudiants. Nous avons construit le questionnaire, collecté plus de 1000 réponses, puis analysé les données sous R.</p>
+        <p>Cette SAÉ portait sur une enquête concernant l’usage de l’intelligence artificielle chez les étudiants. 1000 réponses ont été collectées , puis analysées les données sous R.</p>
         <div class="divider"></div>
         <h4 style="color:var(--c1); margin-bottom:8px;">Points positifs</h4>
         <p>J’ai particulièrement progressé dans l’analyse de la représentativité de l’échantillon. J’ai compris qu’un résultat peut être biaisé si l’échantillon n’est pas équilibré. Cette SAÉ m’a permis de renforcer mon esprit critique face aux données.</p>

@@ -131,7 +131,7 @@
     }
   });
 
-  // ===== MODAL (projects)
+  // ===== MODAL (projects) AVEC IMAGES INTÉGRÉES
   const modal = document.getElementById("modal");
   const closeModal = document.getElementById("closeModal");
   const modalOk = document.getElementById("modalOk");
@@ -144,6 +144,9 @@
       body: `
         <h4 style="color:var(--text); margin-bottom:8px;">Contexte</h4>
         <p>Dans cette SAÉ, nous devions travailler à partir de données du FMI sur le commerce des technologies à faible empreinte carbone. L’objectif était de créer une base de données relationnelle complète : modélisation entité-association, transformation en schéma relationnel, création des tables en SQL, insertion des données, puis exploitation avec des requêtes et des visualisations sur Metabase.</p>
+        
+        <img src="entité-association.png" alt="Modèle Entité-Association" style="width:100%; border-radius:12px; margin:12px 0; border:1px solid var(--border);">
+
         <div class="divider"></div>
         <h4 style="color:var(--c1); margin-bottom:8px;">Points positifs</h4>
         <p>Cette SAÉ m’a permis de vraiment comprendre la logique d’une base de données. Avant, je savais écrire des requêtes simples, mais je ne comprenais pas toujours la structure globale. Ici, j’ai appris à réfléchir en termes de relations entre tables et de cohérence des données. J’ai aussi progressé en SQL (jointures complexes, nettoyage de données, indicateurs de flux commerciaux).</p>
@@ -163,6 +166,10 @@
         <div class="divider"></div>
         <h4 style="color:var(--c1); margin-bottom:8px;">Points positifs</h4>
         <p>J’ai réussi à structurer mon travail du début à la fin : nettoyage des données, analyse, visualisation et interprétation. J’ai compris que l’objectif n’était pas seulement de produire des graphiques, mais d’expliquer ce qu’ils signifient. J'ai aussi progressé en travail de groupe.</p>
+        
+        <img src="graphique-emission-co2.png" alt="Graphique Émission CO2" style="width:100%; border-radius:12px; margin:12px 0; border:1px solid var(--border);">
+        <img src="graphique1-emission-co2.png" alt="Analyse détaillée CO2" style="width:100%; border-radius:12px; margin:12px 0; border:1px solid var(--border);">
+
         <div class="divider"></div>
         <h4 style="color:var(--c3); margin-bottom:8px;">Difficultés rencontrées</h4>
         <p>Au départ, je me concentrais surtout sur les calculs et les graphiques, sans aller assez loin dans l’interprétation. J’avais parfois du mal à formuler des conclusions claires.</p>
@@ -176,6 +183,9 @@
       body: `
         <h4 style="color:var(--text); margin-bottom:8px;">Contexte</h4>
         <p>Le but de cette SAÉ était d’utiliser un jeu de données médical pour construire un modèle de régression logistique capable de prédire si une tumeur est bénigne ou maligne.</p>
+        
+        <img src="régression-logistique.png" alt="Modèle de Régression Logistique" style="width:100%; border-radius:12px; margin:12px 0; border:1px solid var(--border);">
+
         <div class="divider"></div>
         <h4 style="color:var(--c1); margin-bottom:8px;">Points positifs</h4>
         <p>Cette SAÉ m’a permis de mieux comprendre comment fonctionne un modèle prédictif. J’ai appris à analyser les variables, à repérer celles qui étaient les plus importantes et à interpréter les résultats. J’ai développé un esprit plus critique : j’ai compris qu’un modèle ne donne pas “la vérité”, mais une estimation qu’il faut savoir analyser.</p>
@@ -224,6 +234,9 @@
       body: `
         <h4 style="color:var(--text); margin-bottom:8px;">Contexte</h4>
         <p>Nous devions créer un tableau de bord pour le service communication de l’IUT afin d’analyser le profil des étudiants à partir d’un fichier Excel. L’objectif était de transformer un simple tableau de données en un outil clair, interactif et utile pour la décision.</p>
+        
+        <img src="dashboard-excel.jpeg" alt="Dashboard Excel Interactif" style="width:100%; border-radius:12px; margin:12px 0; border:1px solid var(--border);">
+
         <div class="divider"></div>
         <h4 style="color:var(--c1); margin-bottom:8px;">Points positifs</h4>
         <p>J’ai appris à utiliser les tableaux croisés dynamiques, les segments et les graphiques interactifs. J’ai aussi compris l’importance de l’ergonomie : un bon tableau de bord doit être simple et compréhensible pour quelqu’un qui ne travaille pas dans la data.</p>
@@ -272,6 +285,9 @@
       body: `
         <h4 style="color:var(--text); margin-bottom:8px;">Contexte</h4>
         <p>Nous devions mettre en place un environnement PostgreSQL, intégrer un jeu de données mondial sur les catastrophes climatiques et produire des analyses via SQL et Metabase.</p>
+        
+        <img src="carte_metabase.png" alt="Visualisation sur Metabase" style="width:100%; border-radius:12px; margin:12px 0; border:1px solid var(--border);">
+
         <div class="divider"></div>
         <h4 style="color:var(--c1); margin-bottom:8px;">Points positifs</h4>
         <p>J’ai appris à travailler dans un environnement complet de base de données. J’ai amélioré ma maîtrise de SQL et compris comment produire des indicateurs pertinents. Relier la technique à un enjeu mondial concret était très motivant.</p>
@@ -288,6 +304,9 @@
       body: `
         <h4 style="color:var(--text); margin-bottom:8px;">Contexte</h4>
         <p>L’objectif de cette SAÉ était d’analyser une série mensuelle sur les nuitées touristiques en France et de construire des prévisions à l’aide de différentes méthodes (moyenne mobile, lissage exponentiel, ARIMA).</p>
+        
+        <img src="prevision.png" alt="Prévisions sur séries chronologiques" style="width:100%; border-radius:12px; margin:12px 0; border:1px solid var(--border);">
+
         <div class="divider"></div>
         <h4 style="color:var(--c1); margin-bottom:8px;">Points positifs</h4>
         <p>J’ai appris à identifier la tendance et la saisonnalité d’une série temporelle, et à comparer différentes méthodes de prévision. Ça m'a aidé à comprendre comment un phénomène évolue dans le temps.</p>
@@ -303,261 +322,4 @@
       title: "Analyse et Investigation d'un Dataset (Gym) — Python",
       body: `
         <h4 style="color:var(--text); margin-bottom:8px;">Contexte</h4>
-        <p>Ce très gros projet portait sur un dataset issu de Kaggle censé recenser les membres d'une salle de gym (variables morphologiques, physiologiques, entraînement). En Phase 1, on a fait une exploration normale (statistiques, corrélations, clustering CAH) pour trouver des profils. En Phase 2, trouvant les données "trop parfaites", nous avons mené une véritable enquête pour prouver que les données étaient fausses et générées par un ordinateur.</p>
-        <div class="divider"></div>
-        <h4 style="color:var(--c1); margin-bottom:8px;">Points positifs</h4>
-        <p>J'ai adoré cette démarche d'investigation ! J'ai utilisé des tests statistiques complexes (Kolmogorov-Smirnov, Chi², loi Uniforme, loi Normale) pour traquer les incohérences. Le clou du spectacle a été de prouver qu'un modèle de régression linéaire prédisait les calories brûlées à 93.8% (ce qui est biologiquement impossible). J'ai aussi utilisé une Analyse en Composantes Principales (ACP) pour dévoiler la structure cachée du faux dataset.</p>
-        <div class="divider"></div>
-        <h4 style="color:var(--c3); margin-bottom:8px;">Difficultés rencontrées</h4>
-        <p>Au tout début (Phase 1), je pensais vraiment que les données étaient réelles car les distributions semblaient logiques. Ensuite, comprendre et interpréter correctement les résidus de la régression linéaire et le plan factoriel de l'ACP a demandé beaucoup de réflexion.</p>
-        <div class="divider"></div>
-        <h4 style="color:var(--c2); margin-bottom:8px;">Ce que j'ai réussi à rattraper</h4>
-        <p>En prenant du recul et en segmentant les données par sous-groupes (ex: séparer le % de masse grasse par genre ET niveau d'expérience simultanément), j'ai pu démontrer de manière irréfutable la "recette" mathématique qui avait servi à créer les données de toutes pièces. Cette SAÉ a définitivement forgé mon esprit critique de Data Analyst.</p>
-      `
-    },
-    sondage: {
-      title: "Fiabilité d'un sondage — R (simulation)",
-      body: `
-        <p><strong>Objectif :</strong> Étudier la fiabilité d'un sondage via simulation et intervalles de confiance.</p>
-        <div class="divider"></div>
-        <ul>
-          <li>Simulation d'une population d'individus</li>
-          <li>Fonctions R : tirage d'échantillons, estimation ponctuelle</li>
-          <li>Construction d'<strong>intervalles de confiance</strong></li>
-          <li>Comparaison de la précision selon la taille d'échantillon</li>
-        </ul>
-        <p class="muted small"><strong>Compétences :</strong> C1 Traiter • C2 Analyser.</p>
-      `
-    },
-    dataviz: {
-      title: "Analyse & dataviz sur données publiques — de A à Z",
-      body: `
-        <p><strong>Objectif :</strong> Réaliser une analyse complète : cadrage, nettoyage, analyse, visualisation et synthèse.</p>
-        <div class="divider"></div>
-        <ul>
-          <li>Définition du cadre d'étude et formulation des questions</li>
-          <li>Recherche + nettoyage de données publiques</li>
-          <li>Analyse statistique descriptive</li>
-          <li>Dataviz + rapport de synthèse structuré</li>
-          <li>Organisation du projet (tâches, étapes, méthode)</li>
-        </ul>
-        <p class="muted small"><strong>Compétences :</strong> C1 Traiter • C2 Analyser • C3 Valoriser.</p>
-      `
-    }
-  };
-
-  const openModal = (key) => {
-    if (!modal || !modalTitle || !modalBody) return;
-
-    const data = MODALS[key];
-
-    if (!data) {
-      modalTitle.textContent = "Détails du projet";
-      modalBody.innerHTML = `
-        <p class="muted">Ce projet n'a pas encore sa fiche détaillée.</p>
-      `;
-    } else {
-      modalTitle.textContent = data.title;
-      modalBody.innerHTML = data.body;
-    }
-
-    modal.classList.add("open");
-    modal.setAttribute("aria-hidden", "false");
-    document.body.style.overflow = "hidden";
-
-    // Indicateur de scroll
-    const existingHint = modal.querySelector(".modal__scroll-hint");
-    if (existingHint) existingHint.remove();
-
-    window.setTimeout(() => {
-      const body = document.getElementById("modalBody");
-      if (!body) return;
-      const hasScroll = body.scrollHeight > body.clientHeight + 20;
-      if (!hasScroll) return;
-
-      const hint = document.createElement("div");
-      hint.className = "modal__scroll-hint";
-      hint.textContent = "↓ Défiler pour voir la suite";
-      modal.querySelector(".modal__panel").style.position = "relative";
-      modal.querySelector(".modal__panel").appendChild(hint);
-
-      body.addEventListener("scroll", function onScroll() {
-        const atBottom = body.scrollTop + body.clientHeight >= body.scrollHeight - 20;
-        if (atBottom) {
-          hint.classList.add("hidden");
-          body.removeEventListener("scroll", onScroll);
-        }
-      });
-    }, 100);
-  };
-
-  const hideModal = () => {
-    if (!modal) return;
-    modal.classList.remove("open");
-    modal.setAttribute("aria-hidden", "true");
-    document.body.style.overflow = "";
-  };
-
-  document.addEventListener("click", (e) => {
-    const btn = e.target.closest("[data-modal]");
-    if (!btn) return;
-    const key = btn.getAttribute("data-modal");
-    if (key) openModal(key);
-  });
-
-  closeModal?.addEventListener("click", hideModal);
-  modalOk?.addEventListener("click", hideModal);
-  modal?.addEventListener("click", (e) => { if (e.target === modal) hideModal(); });
-  window.addEventListener("keydown", (e) => { if (e.key === "Escape") hideModal(); });
-
-  // ===== PROJECTS FILTER + SEARCH
-  const projectsGrid = document.getElementById("projectsGrid");
-  const cards = Array.from(document.querySelectorAll("#projectsGrid .pCard"));
-  const searchInput = document.getElementById("projectSearch");
-  const clearBtn = document.getElementById("projectClear");
-  const emptyState = document.getElementById("projectsEmpty");
-  const filterBtns = Array.from(document.querySelectorAll(".filterBtn"));
-
-  let activeFilter = "all";
-  let query = "";
-
-  const normalize = (s) =>
-    (s || "")
-      .toLowerCase()
-      .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "")
-      .trim();
-
-  const applyProjectsFilter = () => {
-    if (!projectsGrid) return;
-
-    const q = normalize(query);
-    let visibleCount = 0;
-
-    cards.forEach((card) => {
-      const tags = (card.getAttribute("data-tags") || "").split(/\s+/).filter(Boolean);
-      const keywords = normalize(card.getAttribute("data-keywords") || "");
-      const title = normalize(card.querySelector(".pTitle")?.textContent || "");
-      const meta = normalize(card.querySelector(".pMeta")?.textContent || "");
-      const desc = normalize(card.querySelector("p.muted")?.textContent || "");
-
-      const matchesFilter = (activeFilter === "all") || tags.includes(activeFilter);
-      const matchesQuery =
-        !q ||
-        keywords.includes(q) ||
-        title.includes(q) ||
-        meta.includes(q) ||
-        desc.includes(q);
-
-      const show = matchesFilter && matchesQuery;
-
-      card.style.display = show ? "" : "none";
-      if (show) visibleCount++;
-    });
-
-    if (emptyState) emptyState.style.display = visibleCount === 0 ? "" : "none";
-  };
-
-  filterBtns.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      filterBtns.forEach((b) => {
-        b.classList.remove("is-active");
-        b.setAttribute("aria-pressed", "false");
-      });
-
-      btn.classList.add("is-active");
-      btn.setAttribute("aria-pressed", "true");
-
-      activeFilter = btn.getAttribute("data-filter") || "all";
-      applyProjectsFilter();
-    });
-  });
-
-  searchInput?.addEventListener("input", (e) => {
-    query = e.target.value || "";
-    applyProjectsFilter();
-  });
-
-  clearBtn?.addEventListener("click", () => {
-    if (!searchInput) return;
-    searchInput.value = "";
-    query = "";
-    applyProjectsFilter();
-    searchInput.focus();
-  });
-
-  applyProjectsFilter();
-
-  // ===== PARTICLES (soft)
-  const canvas = document.getElementById("particles");
-  if (canvas) {
-    const ctx = canvas.getContext("2d");
-    let w, h;
-    const dots = [];
-    const DOTS = 50;
-
-    const resize = () => {
-      w = canvas.width = window.innerWidth * devicePixelRatio;
-      h = canvas.height = window.innerHeight * devicePixelRatio;
-    };
-
-    const rand = (a,b) => a + Math.random()*(b-a);
-
-    const init = () => {
-      dots.length = 0;
-      for (let i=0;i<DOTS;i++){
-        dots.push({
-          x: rand(0, w),
-          y: rand(0, h),
-          r: rand(1.2, 2.6) * devicePixelRatio,
-          vx: rand(-0.25, 0.25) * devicePixelRatio,
-          vy: rand(-0.25, 0.25) * devicePixelRatio,
-          a: rand(0.12, 0.35)
-        });
-      }
-    };
-
-    const step = () => {
-      ctx.clearRect(0,0,w,h);
-
-      for (const d of dots){
-        d.x += d.vx; d.y += d.vy;
-        if (d.x < -50) d.x = w + 50;
-        if (d.x > w + 50) d.x = -50;
-        if (d.y < -50) d.y = h + 50;
-        if (d.y > h + 50) d.y = -50;
-
-        ctx.beginPath();
-        ctx.arc(d.x, d.y, d.r, 0, Math.PI*2);
-        ctx.fillStyle = `rgba(124,235,255,${d.a})`;
-        ctx.fill();
-      }
-
-      for (let i=0;i<dots.length;i++){
-        for (let j=i+1;j<dots.length;j++){
-          const a = dots[i], b = dots[j];
-          const dx = a.x - b.x;
-          const dy = a.y - b.y;
-          const dist = Math.sqrt(dx*dx + dy*dy);
-          const max = 140 * devicePixelRatio;
-          if (dist < max){
-            const alpha = (1 - dist/max) * 0.18;
-            ctx.strokeStyle = `rgba(167,139,250,${alpha})`;
-            ctx.lineWidth = 1 * devicePixelRatio;
-            ctx.beginPath();
-            ctx.moveTo(a.x,a.y);
-            ctx.lineTo(b.x,b.y);
-            ctx.stroke();
-          }
-        }
-      }
-
-      requestAnimationFrame(step);
-    };
-
-    resize();
-    init();
-    step();
-    window.addEventListener("resize", () => { resize(); init(); });
-  }
-})();
+        <p>Ce très gros projet portait sur un

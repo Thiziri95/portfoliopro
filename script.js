@@ -184,7 +184,7 @@
         <h4 style="color:var(--text); margin-bottom:8px;">Contexte</h4>
         <p>Le but de cette SAÉ était d’utiliser un jeu de données médical pour construire un modèle de régression logistique capable de prédire si une tumeur est bénigne ou maligne.</p>
         
-        <img src="tumeurs.png" alt="Modèle de Régression Logistique" style="width:100%; border-radius:12px; margin:12px 0; border:1px solid var(--border);">
+        <img src="régression-logistique.png" alt="Modèle de Régression Logistique" style="width:100%; border-radius:12px; margin:12px 0; border:1px solid var(--border);">
         <img src="nuage-regression.png" alt="Nuage de régression" style="width:100%; border-radius:12px; margin:12px 0; border:1px solid var(--border);">
 
         <div class="divider"></div>
@@ -202,16 +202,16 @@
       title: "Analyse de données (Usage de l'IA) — R",
       body: `
         <h4 style="color:var(--text); margin-bottom:8px;">Contexte</h4>
-        <p>Cette SAÉ portait sur l'analyse d'une enquête concernant l’usage de l’intelligence artificielle chez les étudiants. La conception du questionnaire et la collecte sur le terrain avaient déjà été réalisées. À partir du jeu de données brut de plus de 1000 réponses qui nous a été fourni, mon rôle a été de nettoyer la base, de vérifier sa fiabilité et de réaliser l'analyse statistique sous R.</p>
+        <p>Dans le cadre de cette SAÉ (réalisée sous R), nous devions analyser l'impact de l'intelligence artificielle sur la préparation des étudiants au monde professionnel. Nous n'avons pas créé le sondage : un jeu de données brut de <strong>1050 réponses et 61 variables</strong> nous a été fourni. Mon rôle a été de nettoyer cette base et d'en extraire des analyses statistiques fiables.</p>
         <div class="divider"></div>
         <h4 style="color:var(--c1); margin-bottom:8px;">Points positifs</h4>
-        <p>J’ai particulièrement progressé dans l’analyse de la représentativité de l’échantillon. J’ai compris qu’un résultat peut être fortement biaisé si l’échantillon de base n’est pas équilibré. Cette SAÉ m’a permis de renforcer mon esprit critique face à des données brutes.</p>
+        <p>J’ai pu mener une véritable démarche de recherche statistique en testant des hypothèses précises. Par exemple, nous avons pu valider que l'IA était perçue comme un booster de productivité (H40), mais nous avons rejeté l'idée qu'elle faisait baisser la créativité (H32). Cela m'a appris à transformer des données d'opinion en conclusions chiffrées.</p>
         <div class="divider"></div>
         <h4 style="color:var(--c3); margin-bottom:8px;">Difficultés rencontrées</h4>
-        <p>Le nettoyage de certaines réponses incohérentes, le redressement statistique et l’interprétation des intervalles de confiance étaient des étapes très complexes au départ.</p>
+        <p>Notre échantillon n'était pas parfait : il présentait de gros biais de représentativité (ex: surreprésentation des étudiants en début de cycle). De plus, nous n'avions pas de données officielles sur la structure réelle du campus, ce qui a rendu l'étape de <strong>redressement statistique</strong> très complexe au départ.</p>
         <div class="divider"></div>
         <h4 style="color:var(--c2); margin-bottom:8px;">Ce que j'ai réussi à rattraper</h4>
-        <p>En appliquant concrètement les notions sur ces données réelles, j’ai mieux compris l'utilité des méthodes de redressement. Cela m’a permis d’être beaucoup plus rigoureuse dans mes analyses.</p>
+        <p>J'ai appris à formuler et appliquer des hypothèses de redressement pour corriger ces biais de représentativité. Surtout, j'ai développé mon esprit critique : j'ai compris qu'il faut toujours interpréter un sondage avec prudence et honnêteté, en mentionnant clairement les limites de l'échantillon analysé.</p>
       `
     },
     performance: {
@@ -345,6 +345,35 @@
         <div class="divider"></div>
         <h4 style="color:var(--c2); margin-bottom:8px;">Conclusion</h4>
         <p>Nous avons pu démontrer de manière irréfutable la "recette" mathématique du générateur (mélange de lois uniformes par genre et niveau d'expérience, équation de calories, etc.). Cette SAÉ m'a permis d'utiliser l'analyse de données non pas pour décrire un phénomène, mais pour agir comme une véritable détective et prouver la falsification de la donnée.</p>
+      `
+    },
+    sondage: {
+      title: "Fiabilité d'un sondage — R (simulation)",
+      body: `
+        <p><strong>Objectif :</strong> Étudier la fiabilité d'un sondage via simulation et intervalles de confiance.</p>
+        <div class="divider"></div>
+        <ul>
+          <li>Simulation d'une population d'individus</li>
+          <li>Fonctions R : tirage d'échantillons, estimation ponctuelle</li>
+          <li>Construction d'<strong>intervalles de confiance</strong></li>
+          <li>Comparaison de la précision selon la taille d'échantillon</li>
+        </ul>
+        <p class="muted small"><strong>Compétences :</strong> C1 Traiter • C2 Analyser.</p>
+      `
+    },
+    dataviz: {
+      title: "Analyse & dataviz sur données publiques — de A à Z",
+      body: `
+        <p><strong>Objectif :</strong> Réaliser une analyse complète : cadrage, nettoyage, analyse, visualisation et synthèse.</p>
+        <div class="divider"></div>
+        <ul>
+          <li>Définition du cadre d'étude et formulation des questions</li>
+          <li>Recherche + nettoyage de données publiques</li>
+          <li>Analyse statistique descriptive</li>
+          <li>Dataviz + rapport de synthèse structuré</li>
+          <li>Organisation du projet (tâches, étapes, méthode)</li>
+        </ul>
+        <p class="muted small"><strong>Compétences :</strong> C1 Traiter • C2 Analyser • C3 Valoriser.</p>
       `
     }
   };

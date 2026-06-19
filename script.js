@@ -199,19 +199,19 @@
       `
     },
     ia: {
-      title: "Recueil et analyse de données (Usage de l'IA) — R",
+      title: "Analyse de données (Usage de l'IA) — R",
       body: `
         <h4 style="color:var(--text); margin-bottom:8px;">Contexte</h4>
-        <p>Cette SAÉ portait sur une enquête concernant l’usage de l’intelligence artificielle chez les étudiants. 1000 réponses ont été collectées , puis analysées les données sous R.</p>
+        <p>Cette SAÉ portait sur l'analyse d'une enquête concernant l’usage de l’intelligence artificielle chez les étudiants. La conception du questionnaire et la collecte sur le terrain avaient déjà été réalisées. À partir du jeu de données brut de plus de 1000 réponses qui nous a été fourni, mon rôle a été de nettoyer la base, de vérifier sa fiabilité et de réaliser l'analyse statistique sous R.</p>
         <div class="divider"></div>
         <h4 style="color:var(--c1); margin-bottom:8px;">Points positifs</h4>
-        <p>J’ai particulièrement progressé dans l’analyse de la représentativité de l’échantillon. J’ai compris qu’un résultat peut être biaisé si l’échantillon n’est pas équilibré. Cette SAÉ m’a permis de renforcer mon esprit critique face aux données.</p>
+        <p>J’ai particulièrement progressé dans l’analyse de la représentativité de l’échantillon. J’ai compris qu’un résultat peut être fortement biaisé si l’échantillon de base n’est pas équilibré. Cette SAÉ m’a permis de renforcer mon esprit critique face à des données brutes.</p>
         <div class="divider"></div>
         <h4 style="color:var(--c3); margin-bottom:8px;">Difficultés rencontrées</h4>
-        <p>Le redressement statistique et l’interprétation des intervalles de confiance étaient complexes au départ.</p>
+        <p>Le nettoyage de certaines réponses incohérentes, le redressement statistique et l’interprétation des intervalles de confiance étaient des étapes très complexes au départ.</p>
         <div class="divider"></div>
         <h4 style="color:var(--c2); margin-bottom:8px;">Ce que j'ai réussi à rattraper</h4>
-        <p>En appliquant concrètement les notions sur nos données réelles, j’ai mieux compris leur utilité et leur logique. Cela m’a permis d’être plus rigoureuse dans mes analyses.</p>
+        <p>En appliquant concrètement les notions sur ces données réelles, j’ai mieux compris l'utilité des méthodes de redressement. Cela m’a permis d’être beaucoup plus rigoureuse dans mes analyses.</p>
       `
     },
     performance: {

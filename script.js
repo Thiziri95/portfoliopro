@@ -255,7 +255,7 @@
         <p>Concevoir et administrer une enquête sur les habitudes alimentaires des étudiants de l’université. Nous devions construire le questionnaire, collecter les réponses, analyser les données et présenter les résultats.</p>
         <div class="divider"></div>
         <h4 style="color:var(--c1); margin-bottom:8px;">Points positifs</h4>
-        <p>J’ai appris à construire un questionnaire logique. J’ai aussi développé mes compétences en analyse descriptive (tris à plat, tris croisés). Travailler sur de vraies données terrain rendait l'analyse très concrète.</p>
+        <p>J’ai appris à construire un questionnaire logique. J’ai aussi développé mes compétences en analyse descriptive. Travailler sur de vraies données terrain rendait l'analyse très concrète.</p>
         <div class="divider"></div>
         <h4 style="color:var(--c3); margin-bottom:8px;">Difficultés rencontrées</h4>
         <p>Certaines questions auraient pu être formulées plus clairement. Nous avons aussi rencontré quelques incohérences dans les réponses collectées.</p>
@@ -347,6 +347,35 @@
         <div class="divider"></div>
         <h4 style="color:var(--c2); margin-bottom:8px;">Conclusion</h4>
         <p>En prenant du recul et en segmentant les données par sous-groupes, j'ai pu démontrer de manière irréfutable la "recette" mathématique qui avait servi à créer les données de toutes pièces. Cette SAÉ a définitivement forgé mon esprit critique de Data Analyst.</p>
+      `
+    },
+    sondage: {
+      title: "Fiabilité d'un sondage — R (simulation)",
+      body: `
+        <p><strong>Objectif :</strong> Étudier la fiabilité d'un sondage via simulation et intervalles de confiance.</p>
+        <div class="divider"></div>
+        <ul>
+          <li>Simulation d'une population d'individus</li>
+          <li>Fonctions R : tirage d'échantillons, estimation ponctuelle</li>
+          <li>Construction d'<strong>intervalles de confiance</strong></li>
+          <li>Comparaison de la précision selon la taille d'échantillon</li>
+        </ul>
+        <p class="muted small"><strong>Compétences :</strong> C1 Traiter • C2 Analyser.</p>
+      `
+    },
+    dataviz: {
+      title: "Analyse & dataviz sur données publiques — de A à Z",
+      body: `
+        <p><strong>Objectif :</strong> Réaliser une analyse complète : cadrage, nettoyage, analyse, visualisation et synthèse.</p>
+        <div class="divider"></div>
+        <ul>
+          <li>Définition du cadre d'étude et formulation des questions</li>
+          <li>Recherche + nettoyage de données publiques</li>
+          <li>Analyse statistique descriptive</li>
+          <li>Dataviz + rapport de synthèse structuré</li>
+          <li>Organisation du projet (tâches, étapes, méthode)</li>
+        </ul>
+        <p class="muted small"><strong>Compétences :</strong> C1 Traiter • C2 Analyser • C3 Valoriser.</p>
       `
     }
   };

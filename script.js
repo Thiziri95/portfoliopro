@@ -203,9 +203,15 @@
       body: `
         <h4 style="color:var(--text); margin-bottom:8px;">Contexte</h4>
         <p>Dans le cadre de cette SAÉ (réalisée sous R), nous devions analyser l'impact de l'intelligence artificielle sur la préparation des étudiants au monde professionnel. Nous n'avons pas créé le sondage : un jeu de données brut de <strong>1050 réponses et 61 variables</strong> nous a été fourni. Mon rôle a été de nettoyer cette base et d'en extraire des analyses statistiques fiables.</p>
+        
+        <img src="diagramme-ven.png" alt="Diagramme de Venn sur l'utilisation de l'IA" style="width:100%; border-radius:12px; margin:12px 0; border:1px solid var(--border);">
+
         <div class="divider"></div>
         <h4 style="color:var(--c1); margin-bottom:8px;">Points positifs</h4>
         <p>J’ai pu mener une véritable démarche de recherche statistique en testant des hypothèses précises. Par exemple, nous avons pu valider que l'IA était perçue comme un booster de productivité (H40), mais nous avons rejeté l'idée qu'elle faisait baisser la créativité (H32). Cela m'a appris à transformer des données d'opinion en conclusions chiffrées.</p>
+        
+        <img src="graphique-ia-sae.png" alt="Graphique d'analyse de l'IA" style="width:100%; border-radius:12px; margin:12px 0; border:1px solid var(--border);">
+
         <div class="divider"></div>
         <h4 style="color:var(--c3); margin-bottom:8px;">Difficultés rencontrées</h4>
         <p>Notre échantillon n'était pas parfait : il présentait de gros biais de représentativité (ex: surreprésentation des étudiants en début de cycle). De plus, nous n'avions pas de données officielles sur la structure réelle du campus, ce qui a rendu l'étape de <strong>redressement statistique</strong> très complexe au départ.</p>

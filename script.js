@@ -323,29 +323,28 @@
       title: "Analyse et Investigation d'un Dataset (Gym) — Python",
       body: `
         <h4 style="color:var(--text); margin-bottom:8px;">Contexte</h4>
-        <p>Ce très gros projet portait sur un dataset issu de Kaggle censé recenser les membres d'une salle de gym (variables morphologiques, physiologiques, entraînement). En Phase 1, on a fait une exploration normale pour trouver des profils. En Phase 2, trouvant les données "trop parfaites", nous avons mené une véritable enquête pour prouver que les données étaient fausses et générées par un ordinateur.</p>
+        <p>Ce très gros projet portait sur un dataset de Kaggle (973 membres de gym, 15 variables). En Phase 1, nous avons mené une exploration statistique classique (distributions, corrélations de Pearson, CAH). Cependant, la propreté du dataset (zéro valeur manquante) et les distributions trop régulières nous ont alertés.</p>
         
         <div class="divider"></div>
         <h4 style="color:var(--c1); margin-bottom:8px;">La Phase 1 : Exploration classique</h4>
-        <p>J'ai commencé par une analyse descriptive et bivariée. Par exemple, la matrice de corrélation a révélé des liens évidents entre la durée de la séance et les calories brûlées.</p>
+        <p>L'étude initiale a révélé des liens évidents, confirmés par la matrice de corrélation, comme la forte dépendance entre la durée de la séance et les calories brûlées (r=0.908). Une Classification Ascendante Hiérarchique (CAH) après standardisation nous a permis d'isoler des profils d'intensité d'entraînement.</p>
         
         <img src="matrice_corrélation.png" alt="Matrice de corrélation" style="width:100%; border-radius:12px; margin:12px 0; border:1px solid var(--border);">
-
-        <p>Ensuite, j'ai réalisé une Classification Ascendante Hiérarchique (CAH) pour grouper les sportifs. Le dendrogramme nous a permis d'isoler 3 grands profils d'intensité.</p>
-        
         <img src="cluster.png" alt="Dendrogramme de la CAH" style="width:100%; border-radius:12px; margin:12px 0; border:1px solid var(--border);">
 
         <div class="divider"></div>
         <h4 style="color:var(--c1); margin-bottom:8px;">La Phase 2 : Le déclic et l'investigation</h4>
-        <p>J'ai adoré cette démarche d'investigation ! J'ai utilisé des tests statistiques complexes pour traquer les incohérences. Le clou du spectacle a été de prouver qu'un modèle de régression linéaire prédisait les calories brûlées à 93.8% (ce qui est biologiquement impossible). Les données étaient trop propres pour être vraies.</p>
+        <p>Trouvant les données "trop parfaites", nous avons formulé une nouvelle problématique : ce dataset est-il issu du terrain ou généré informatiquement ? Grâce à des tests statistiques rigoureux (Kolmogorov-Smirnov, Chi²), nous avons démontré que plusieurs variables (Âge, Max_BPM) suivaient des lois uniformes discrètes sans aucune logique démographique ou physiologique (ex: corrélation Age/Max_BPM quasi nulle, biologiquement impossible).</p>
         
-        <p>J'ai aussi utilisé une Analyse en Composantes Principales (ACP) pour dévoiler la structure cachée du faux dataset.</p>
+        <p>Le point d'orgue fut une régression linéaire multiple sur les <em>Calories_Burned</em> : le modèle obtenu (R² = 93.79%) prouve que cette variable est issue d'une équation mathématique exacte à laquelle a été ajouté un bruit aléatoire gaussien, là où un dataset réel plafonnerait à 65%.</p>
+        
+        <p>Enfin, une Analyse en Composantes Principales (ACP) a dévoilé une structure trop nette des composantes, confirmant la séparation artificielle des populations.</p>
         
         <img src="plan-factoriel.png" alt="Plan factoriel de l'ACP" style="width:100%; border-radius:12px; margin:12px 0; border:1px solid var(--border);">
 
         <div class="divider"></div>
         <h4 style="color:var(--c2); margin-bottom:8px;">Conclusion</h4>
-        <p>En prenant du recul et en segmentant les données par sous-groupes, j'ai pu démontrer de manière irréfutable la "recette" mathématique qui avait servi à créer les données de toutes pièces. Cette SAÉ a définitivement forgé mon esprit critique de Data Analyst.</p>
+        <p>Nous avons pu démontrer de manière irréfutable la "recette" mathématique du générateur (mélange de lois uniformes par genre et niveau d'expérience, équation de calories, etc.). Cette SAÉ m'a permis d'utiliser l'analyse de données non pas pour décrire un phénomène, mais pour agir comme une véritable détective et prouver la falsification de la donnée.</p>
       `
     }
   };

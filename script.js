@@ -322,4 +322,247 @@
       title: "Analyse et Investigation d'un Dataset (Gym) — Python",
       body: `
         <h4 style="color:var(--text); margin-bottom:8px;">Contexte</h4>
-        <p>Ce très gros projet portait sur un
+        <p>Ce très gros projet portait sur un dataset issu de Kaggle censé recenser les membres d'une salle de gym (variables morphologiques, physiologiques, entraînement). En Phase 1, on a fait une exploration normale pour trouver des profils. En Phase 2, trouvant les données "trop parfaites", nous avons mené une véritable enquête pour prouver que les données étaient fausses et générées par un ordinateur.</p>
+        
+        <div class="divider"></div>
+        <h4 style="color:var(--c1); margin-bottom:8px;">La Phase 1 : Exploration classique</h4>
+        <p>J'ai commencé par une analyse descriptive et bivariée. Par exemple, la matrice de corrélation a révélé des liens évidents entre la durée de la séance et les calories brûlées.</p>
+        
+        <img src="matrice_corrélation.png" alt="Matrice de corrélation" style="width:100%; border-radius:12px; margin:12px 0; border:1px solid var(--border);">
+
+        <p>Ensuite, j'ai réalisé une Classification Ascendante Hiérarchique (CAH) pour grouper les sportifs. Le dendrogramme nous a permis d'isoler 3 grands profils d'intensité.</p>
+        
+        <img src="cluster.png" alt="Dendrogramme de la CAH" style="width:100%; border-radius:12px; margin:12px 0; border:1px solid var(--border);">
+
+        <div class="divider"></div>
+        <h4 style="color:var(--c1); margin-bottom:8px;">La Phase 2 : Le déclic et l'investigation</h4>
+        <p>J'ai adoré cette démarche d'investigation ! J'ai utilisé des tests statistiques complexes pour traquer les incohérences. Le clou du spectacle a été de prouver qu'un modèle de régression linéaire prédisait les calories brûlées à 93.8% (ce qui est biologiquement impossible). Les données étaient trop propres pour être vraies.</p>
+        
+        <img src="nuage-regression.png" alt="Nuage de régression" style="width:100%; border-radius:12px; margin:12px 0; border:1px solid var(--border);">
+
+        <p>J'ai aussi utilisé une Analyse en Composantes Principales (ACP) pour dévoiler la structure cachée du faux dataset.</p>
+        
+        <img src="plan-factoriel.png" alt="Plan factoriel de l'ACP" style="width:100%; border-radius:12px; margin:12px 0; border:1px solid var(--border);">
+
+        <div class="divider"></div>
+        <h4 style="color:var(--c2); margin-bottom:8px;">Conclusion</h4>
+        <p>En prenant du recul et en segmentant les données par sous-groupes, j'ai pu démontrer de manière irréfutable la "recette" mathématique qui avait servi à créer les données de toutes pièces. Cette SAÉ a définitivement forgé mon esprit critique de Data Analyst.</p>
+      `
+    }
+  };
+
+  const openModal = (key) => {
+    if (!modal || !modalTitle || !modalBody) return;
+
+    const data = MODALS[key];
+
+    if (!data) {
+      modalTitle.textContent = "Détails du projet";
+      modalBody.innerHTML = `
+        <p class="muted">Ce projet n'a pas encore sa fiche détaillée.</p>
+      `;
+    } else {
+      modalTitle.textContent = data.title;
+      modalBody.innerHTML = data.body;
+    }
+
+    modal.classList.add("open");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+
+    // Indicateur de scroll
+    const existingHint = modal.querySelector(".modal__scroll-hint");
+    if (existingHint) existingHint.remove();
+
+    window.setTimeout(() => {
+      const body = document.getElementById("modalBody");
+      if (!body) return;
+      const hasScroll = body.scrollHeight > body.clientHeight + 20;
+      if (!hasScroll) return;
+
+      const hint = document.createElement("div");
+      hint.className = "modal__scroll-hint";
+      hint.textContent = "↓ Défiler pour voir la suite";
+      modal.querySelector(".modal__panel").style.position = "relative";
+      modal.querySelector(".modal__panel").appendChild(hint);
+
+      body.addEventListener("scroll", function onScroll() {
+        const atBottom = body.scrollTop + body.clientHeight >= body.scrollHeight - 20;
+        if (atBottom) {
+          hint.classList.add("hidden");
+          body.removeEventListener("scroll", onScroll);
+        }
+      });
+    }, 100);
+  };
+
+  const hideModal = () => {
+    if (!modal) return;
+    modal.classList.remove("open");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  };
+
+  document.addEventListener("click", (e) => {
+    const btn = e.target.closest("[data-modal]");
+    if (!btn) return;
+    const key = btn.getAttribute("data-modal");
+    if (key) openModal(key);
+  });
+
+  closeModal?.addEventListener("click", hideModal);
+  modalOk?.addEventListener("click", hideModal);
+  modal?.addEventListener("click", (e) => { if (e.target === modal) hideModal(); });
+  window.addEventListener("keydown", (e) => { if (e.key === "Escape") hideModal(); });
+
+  // ===== PROJECTS FILTER + SEARCH
+  const projectsGrid = document.getElementById("projectsGrid");
+  const cards = Array.from(document.querySelectorAll("#projectsGrid .pCard"));
+  const searchInput = document.getElementById("projectSearch");
+  const clearBtn = document.getElementById("projectClear");
+  const emptyState = document.getElementById("projectsEmpty");
+  const filterBtns = Array.from(document.querySelectorAll(".filterBtn"));
+
+  let activeFilter = "all";
+  let query = "";
+
+  const normalize = (s) =>
+    (s || "")
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .trim();
+
+  const applyProjectsFilter = () => {
+    if (!projectsGrid) return;
+
+    const q = normalize(query);
+    let visibleCount = 0;
+
+    cards.forEach((card) => {
+      const tags = (card.getAttribute("data-tags") || "").split(/\s+/).filter(Boolean);
+      const keywords = normalize(card.getAttribute("data-keywords") || "");
+      const title = normalize(card.querySelector(".pTitle")?.textContent || "");
+      const meta = normalize(card.querySelector(".pMeta")?.textContent || "");
+      const desc = normalize(card.querySelector("p.muted")?.textContent || "");
+
+      const matchesFilter = (activeFilter === "all") || tags.includes(activeFilter);
+      const matchesQuery =
+        !q ||
+        keywords.includes(q) ||
+        title.includes(q) ||
+        meta.includes(q) ||
+        desc.includes(q);
+
+      const show = matchesFilter && matchesQuery;
+
+      card.style.display = show ? "" : "none";
+      if (show) visibleCount++;
+    });
+
+    if (emptyState) emptyState.style.display = visibleCount === 0 ? "" : "none";
+  };
+
+  filterBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      filterBtns.forEach((b) => {
+        b.classList.remove("is-active");
+        b.setAttribute("aria-pressed", "false");
+      });
+
+      btn.classList.add("is-active");
+      btn.setAttribute("aria-pressed", "true");
+
+      activeFilter = btn.getAttribute("data-filter") || "all";
+      applyProjectsFilter();
+    });
+  });
+
+  searchInput?.addEventListener("input", (e) => {
+    query = e.target.value || "";
+    applyProjectsFilter();
+  });
+
+  clearBtn?.addEventListener("click", () => {
+    if (!searchInput) return;
+    searchInput.value = "";
+    query = "";
+    applyProjectsFilter();
+    searchInput.focus();
+  });
+
+  applyProjectsFilter();
+
+  // ===== PARTICLES (soft)
+  const canvas = document.getElementById("particles");
+  if (canvas) {
+    const ctx = canvas.getContext("2d");
+    let w, h;
+    const dots = [];
+    const DOTS = 50;
+
+    const resize = () => {
+      w = canvas.width = window.innerWidth * devicePixelRatio;
+      h = canvas.height = window.innerHeight * devicePixelRatio;
+    };
+
+    const rand = (a,b) => a + Math.random()*(b-a);
+
+    const init = () => {
+      dots.length = 0;
+      for (let i=0;i<DOTS;i++){
+        dots.push({
+          x: rand(0, w),
+          y: rand(0, h),
+          r: rand(1.2, 2.6) * devicePixelRatio,
+          vx: rand(-0.25, 0.25) * devicePixelRatio,
+          vy: rand(-0.25, 0.25) * devicePixelRatio,
+          a: rand(0.12, 0.35)
+        });
+      }
+    };
+
+    const step = () => {
+      ctx.clearRect(0,0,w,h);
+
+      for (const d of dots){
+        d.x += d.vx; d.y += d.vy;
+        if (d.x < -50) d.x = w + 50;
+        if (d.x > w + 50) d.x = -50;
+        if (d.y < -50) d.y = h + 50;
+        if (d.y > h + 50) d.y = -50;
+
+        ctx.beginPath();
+        ctx.arc(d.x, d.y, d.r, 0, Math.PI*2);
+        ctx.fillStyle = `rgba(124,235,255,${d.a})`;
+        ctx.fill();
+      }
+
+      for (let i=0;i<dots.length;i++){
+        for (let j=i+1;j<dots.length;j++){
+          const a = dots[i], b = dots[j];
+          const dx = a.x - b.x;
+          const dy = a.y - b.y;
+          const dist = Math.sqrt(dx*dx + dy*dy);
+          const max = 140 * devicePixelRatio;
+          if (dist < max){
+            const alpha = (1 - dist/max) * 0.18;
+            ctx.strokeStyle = `rgba(167,139,250,${alpha})`;
+            ctx.lineWidth = 1 * devicePixelRatio;
+            ctx.beginPath();
+            ctx.moveTo(a.x,a.y);
+            ctx.lineTo(b.x,b.y);
+            ctx.stroke();
+          }
+        }
+      }
+
+      requestAnimationFrame(step);
+    };
+
+    resize();
+    init();
+    step();
+    window.addEventListener("resize", () => { resize(); init(); });
+  }
+})();
